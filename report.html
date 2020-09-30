@@ -1,4 +1,4 @@
-<!-- Version 2.2.1-->
+<!-- Version 2.3-->
 
 <!DOCTYPE html>
 <html>
@@ -48,10 +48,11 @@
 <p>11) ChocAn manager: an employee at the data center who can request the member, provider, and summary reports.</p>
 <p>12) Main accounting procedure: reads the week’s file of services provided and prints the number of reports (including member, provider, and summary reports); run every Friday at the ChocAn Data center.</p>
 <p>13) Acme Accounting Services: 3rd party organization who handles financial procedures relating to automated member payments for ChocAn.</p>
-<p>14) Electronic funds transfer: often abbreviated EFT, refers to transferring funds from an electronic source.</p>
+<p>14) Electronic funds transfer (EFT) data: the ChocAn Data Center writes a record of all EFT data to a disc for banking computers to use later.</p>
 <p>15) Member report: a weekly document sent to members who consulted a ChocAn provider that week listing member name, member number, member street address, member city, member state, member ZIP code, and additionally for each service provided the following details are required: date of service, provider name, and service name.</p>
 <p>16) Provider report: a weekly document sent to each provider who billed ChocAn during that week listing provider name, provider number, provider street address, provider city, provider state, provider ZIP code, total number of consultations with members, total fee for the week, and additionally for each service provided, the following details are required: date of service, date and time data were received by the computer, member name, member number, service code, and fee to be paid.</p>
 <p>17) Summary report: sent to the ChocAn manager for accounts payable listing every provider to be paid that week, the number of consultations each had, and his or her total fee for that week.</p>
+<p>18) Timer: an “actor” that is run every Friday at midnight in the ChocAn Data Center to run the standard accounting procedure that produces the above reports and writes EFT data to a disc.</p>
 </br>
 
 <h2>Use Cases</h2>
@@ -67,7 +68,15 @@
 <p>Extensions:</p>
 <p>3a. If the member number is not valid, the reason (Invalid number, Member suspended, etc.) is displayed.</p>
 </br>
+<p>Use case: Manage Member</p>
+<p>Context: A ChocAn operator needs to manage a member in the ChocAn Database.</p>
+<p>Actors: ChocAn Operator</p>
 <p>Use case: Add Member</p>
+<p>Main Success Scenario:</p>
+<p>1) A ChocAn operator needs to manage a member.</p>
+<p>2) The operator is presented with three options to either add, update, or delete a member.</p>
+<p>Extensions: N/A</p>
+</br>
 <p>Context: A ChocAn operator adds a member to the ChocAn Data Center records.</p>
 <p>Actors: ChocAn Operator</p>
 <p>Main Success Scenario:</p>
@@ -81,7 +90,9 @@
 <p>Main Success Scenario:</p>
 <p>1. A person requests to no longer be a ChocAn member.</p>
 <p>2. A ChocAn operator removes the member’s information from the ChocAn Data Center records.</p>
-<p>Extensions: N/A</p>
+<p>Extensions:</p>
+<p>2a. The person to be deleted does not already exist in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1. The deletion process is aborted.</p>
 </br>
 <p>Use case: Update Member</p>
 <p>Context: An operator updates a member in the ChocAn Data Center records.</p>
@@ -89,6 +100,16 @@
 <p>Main Success Scenario:</p>
 <p>1. A ChocAn member’s information changes.</p>
 <p>2. A ChocAn operator updates the member’s information in the ChocAn Data Center records.</p>
+<p>Extensions:</p>
+<p>2a. The person to be updated does not already exist in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1. The update process is aborted.</p>
+</br>
+<p>Use case: Manage Provider</p>
+<p>Context: A ChocAn operator manages providers in the ChocAn Data Center records.</p>
+<p>Actors: ChocAn Operator</p>
+<p>Main Success Scenario:</p>
+<p>1) An operator makes changes to providers in the ChocAn Data Center.</p>
+<p>2) The operator is presented with the options to add, update, or delete a provider.</p>
 <p>Extensions: N/A</p>
 </br>
 <p>Use case: Add Provider</p>
@@ -97,7 +118,9 @@
 <p>Main Success Scenario:</p>
 <p>1. A person requests to become a ChocAn provider.</p>
 <p>2. A ChocAn operator adds the new provider’s information to the ChocAn Data Center records.</p>
-<p>Extensions: N/A</p>
+<p>Extensions:</p>
+<p>2a. The provider already exists in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1. The add provider process is aborted.</p>
 </br>
 <p>Use case: Delete Provider</p>
 <p>Context: An operator removes a provider from the ChocAn Data Center records.</p>
@@ -105,7 +128,9 @@
 <p>Main Success Scenario:</p>
 <p>1. A person requests to no longer be a ChocAn provider.</p>
 <p>2. A ChocAn operator removes the provider’s information from the ChocAn Data Center records.</p>
-<p>Extensions: N/A</p>
+<p>Extensions:</p>
+<p>2a. The person to be deleted does not already exist in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1. The deletion process is aborted</p>
 </br>
 <p>Use case: Update Provider</p>
 <p>Context: An operator updates a provider in the ChocAn Data Center records.</p>
@@ -113,13 +138,15 @@
 <p>Main Success Scenario:</p>
 <p>1. A ChocAn provider’s information changes.</p>
 <p>2. A ChocAn operator updates the provider’s information in the ChocAn Data Center records.</p>
-<p>Extensions: N/A</p>
+<p>Extensions:</p>
+<p>2a. The person to be updated does not already exist in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1. The update process is aborted.</p>
 </br>
 <p>Use case: Request Member Report</p>
 <p>Context: A ChocAn manager requests a member report</p>
 <p>Actors: ChocAn Manager</p>
 <p>Main Success Scenario:</p>
-<p>1. A manager requests a copy of a member report.</p>
+<p>1. A manager requests a copy of a member report, listing member name, member number, member street address, member city, member state, member ZIP code, and additionally for each service provided the following details are required: date of service, provider name, and service name.</p>
 <p>2. The manager receives the latest copy of a member report generated by the ChocAn Data Center’s accounting procedure.</p>
 <p>Extensions: N/A</p>
 </br>
@@ -127,7 +154,7 @@
 <p>Context: A ChocAn manager requests a provider report</p>
 <p>Actors: ChocAn Manager</p>
 <p>Main Success Scenario:</p>
-<p>1. A manager requests a copy of a provider report.</p>
+<p>1. A manager requests a copy of a provider report, listing member name, member number, member street address, member city, member state, member ZIP code, and additionally for each service provided the following details are required: date of service, provider name, and service name.</p>
 <p>2. The manager receives the latest copy of a provider report generated by the ChocAn Data Center’s accounting procedure.</p>
 <p>Extensions: N/A</p>
 </br>
@@ -135,13 +162,13 @@
 <p>Context: A ChocAn manager requests a summary report</p>
 <p>Actors: ChocAn Manager</p>
 <p>Main Success Scenario:</p>
-<p>1. A manager requests a copy of a summary report.</p>
+<p>1. A manager requests a copy of a summary report, listing every provider to be paid that week, the number of consultations each had, and his or her total fee for that week.</p>
 <p>2. The manager receives the latest copy of a summary report generated by the ChocAn Data Center’s accounting procedure.</p>
 <p>Extensions: N/A</p>
 </br>
 <p>Use case: Request Provider Directory</p>
 <p>Context: A provider requests a Provider Directory</p>
-<p>Actors: Provider</p>
+<p>Actors: Timer</p>
 <p>Main Success Scenario:</p>
 <p>1. A provider requests the software product for a Provider Directory.</p>
 <p>2. The provider receives the Provider Directory as an attachment in an email.</p>
@@ -188,9 +215,19 @@
 <p style="margin-left:2.5%;">6a.1. An error message is printed on the terminal.</p>
 <p style="margin-left:2.5%;">6a.2. The use case continues at step 5.</p>
 </br>
+<p>Use Case: Write EFT Data to disc</p>
+<p>Context: EFT Data is recorded in the ChocAn database</p>
+<p>Actors: Timer</p>
+<p>Main Success Scenario:</p>
+<p>1) A file is created that includes information of an outside provider and the amount to be transferred.</p>
+<p>2) Data is written to the prepared file.</p>
+<p>Extensions: N/A</p>
+</br>
+
 <h2>Use Case Diagram</h2>
-<p>(attached is UseCaseDiagram.png that is included in the zip file)</p>
-<img src="UseCaseDiagram.png" alt="Use Case Diagram">
+
+<p>(attached is "ChocAn Use Case Diagram.png" that is included in the zip file)</p>
+<img src="ChocAn Use Case Diagram.png" alt="Use Case Diagram">
 
 </body>
 </html>
