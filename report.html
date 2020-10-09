@@ -1,4 +1,4 @@
-<!-- Version 2.3-->
+<!-- Version 2.4 -->
 
 <!DOCTYPE html>
 <html>
@@ -77,12 +77,15 @@
 <p>2) The operator is presented with three options to either add, update, or delete a member.</p>
 <p>Extensions: N/A</p>
 </br>
+<p>Use case: Add Member</p>
 <p>Context: A ChocAn operator adds a member to the ChocAn Data Center records.</p>
 <p>Actors: ChocAn Operator</p>
 <p>Main Success Scenario:</p>
 <p>1. A person requests to become a ChocAn member.</p>
 <p>2. A ChocAn operator adds the new member’s information to the ChocAn Data Center records.</p>
-<p>Extensions: N/A</p>
+<p>Extensions: </p>
+<p>2a. The person to be added already exists in the ChocAn Data Center records.</p>
+<p style="margin-left:2.5%;">2a.1, The deletion process is aborted.</p>
 </br>
 <p>Use case: Delete Member</p>
 <p>Context: An operator removes a member from the ChocAn Data Center records.</p>
@@ -228,6 +231,89 @@
 
 <p>(attached is "ChocAn Use Case Diagram.png" that is included in the zip file)</p>
 <img src="ChocAn Use Case Diagram.png" alt="Use Case Diagram">
+</br>
+
+<h1>CS200 Project 2</h1>
+<p>Submitter is Joseph Daly</p>
+<p>Joseph Daly	    CWID: 11988309 jrdaly2@crimson.ua.edu - Time spent: 5 hours</p>
+<p>David Dillard 	CWID: 11943697 dldillard@crimson.ua.edu - Time spent: 5 hours</p>
+<p>Jacob Pacheco	CWID: 12016535 jmpacheco@crimson.ua.edu - Time spent: 5 hours</p>
+<p>Zachary Stiles	CWID: 12018285 zmstiles@crimson.ua.edu - Time spent: 5 hours</p>
+<p>Jacob Grinstead	CWID: 12018239 jgrinstead@crimson.ua.edu - Time Spent: 5 hours</p>
+</br>
+
+<h2>Task Distribution</h2>
+<p>Joseph Daly (20%):</p>
+<p>- wrote HTML for report.html file (100%)</p>
+<p>- BillChocAn activity diagram (100%)</p>
+<p>- worked on entity, boundary, and control classes (12.5%)</p>
+<p>- worked on the list of requirements (12.5%)</p>
+<p>- modified project 1 to account for given feedback (20%)</p>
+<p>David Dillard (20%):</p>
+<p>- worked on Activity diagrams for manage provider and member as well as their extends (100%)</p>
+<p>- worked on Activity diagram for request provider directory (100%)</p>
+<p>- updated Project 1 use case diagram (100%)</p>
+<p>- worked on entity, boundary, and control classes (12.5%)</p>
+<p>- worked on the list of requirements (12.5%)</p>
+<p>Jacob Pacheco (20%):</p>
+<p>- updated use cases (33%)</p>
+<p>- worked on entity, boundary, and control classes (25%)</p>
+<p>- worked on list of requirements (25%)</p>
+<p>- verify member card activity diagram (100%)</p>
+<p>Zachary Stiles (20%):</p>
+<p>- updated use cases (33%)</p>
+<p>- worked on list of requirements (25%)</p>
+<p>- worked on entity, boundary, and control classes (25%)</p>
+<p>- worked on stereotype diagram (70%)</p>
+<p>Jacob Grinstead (20%):</p>
+<p>- main Activity Diagram (100%)</p>
+<p>- worked on entity, boundary, and control classes (25%)</p>
+<p>- worked on list of requirements (25%)</p>
+<p>- worked on stereotype diagram (30%)</p>
+<p>- updated use cases(33%)</p>
+</br>
+
+<h2>Task 1:</h2>
+<p>The majority of the ChocAn Data Center’s processes will be computerized besides physical record keeping and physical card verification. The computerized sections will be constructed in Java for its object oriented design structure.</p>
+<p>All member, provider, report, and EFT data will be stored in the ChocAn Data Center. The necessary hardware is ChocAn terminals for providers, card reader, operator terminals, and the ChocAn data center’s hardware.</p>
+<p>ChocAn’s system interacts with systems created by outside companies, like ACME’s accounting programs. Users must be able to manage ChocAn members and providers, as well as request ChocAn billing information.</p>
+<p>Management consists of adding, removing, and editing information of said members and providers.</p>
+</br>
+
+<h2>Task 2:</h2>
+<p>Below is the stereotyped class diagram of the ChocAn system.</p>
+<img src="StereotypeDiagram.png" alt="Stereotype Class Diagram">
+</br>
+
+<h2>Task 3:</h2>
+<p>Below is the main activity diagram.</p>
+<img src="Main Activity Diagram.png" alt="Main Activity Diagram">
+<p>Below is the activity diagram for the Bill ChocAn use case.</p>
+<img src="BillChocAn.png" alt="Bill ChocAn">
+<p>Below is the activity diagrams for the manage member, add member, delete member, and update member use cases below.</p>
+<img src="ManageMemb.png" alt="Manage Member">
+<img src="AMemb.png" alt="Add Member">
+<img src="DMemb.png" alt="Delete Member">
+<img src="UMemb.png" alt="Update Member">
+<p>Below is the activity diagrams for the manage provider, add provider, delete provider, and update provider use cases below.</p>
+<img src="ManageProv.png" alt="Manage Provider">
+<img src="AProv.png" alt="Add Provider">
+<img src="DProv.png" alt="Delete Provider">
+<img src="UProv.png" alt="Update Provider">
+<p>Below is the activity diagram for the request provider directory use case.</p>
+<img src="Request Provider Directory.png" alt="Request Provider Directory">
+<p>Below is the activity diagram for the request member report use case.</p>
+<img src="RequestMemberReport_activity.png" alt="Request Member Report">
+<p>Below is the activity diagram for the request provider report use case.</p>
+<img src="RequestProviderReport_activity.png" alt="Request Provider Report">
+<p>Below is the activity diagram for the request summary report use case.</p>
+<img src="RequestSummaryReport_activity.png" alt="Request Summary Report">
+<p>Below is the activity diagram for the run accounting procedure use case.</p>
+<img src="RunAccountingProcedure_activity.png" alt="Run Accounting Procedure">
+<p>Below is the activity diagram for the verify member card use case.</p>
+<img src="verifymembercard_activity.png" alt="Verify Member Card">
+<p>Below is the activity diagram for the write EFT date use case.</p>
+<img src="WriteEFTData.png" alt="Write EFT Data">
 
 </body>
 </html>
