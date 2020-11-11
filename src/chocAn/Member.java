@@ -1,8 +1,10 @@
 package chocAn;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,25 +20,102 @@ public class Member {
 	private String status;
 	
 	public boolean searchMemberNumber(String number) {
-		//TODO: Implement
+		List<Member> members = getMembersFromDatabase();
+		for (Member member : members) {
+			if (member.getNumber().equals(number))
+				return true;
+		}
 		return false;
 	}
 	
 	public Member getMemberByNumber(String number) {
-		//TODO: Implement
-		return null;
+		List<Member> members = getMembersFromDatabase();
+		for (Member member : members) {
+			if (member.getNumber().equals(number))
+				return member;
+		}
+		return null; //needs for not null check on other end
 	}
 	
 	public void addMemberToDatabase() {
-		//TODO: Implement
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnMembers.csv", true));
+			writer.append(name);
+			writer.append(",");
+			writer.append(number);
+			writer.append(",");
+			writer.append(address);
+			writer.append(",");
+			writer.append(city);
+			writer.append(",");
+			writer.append(state);
+			writer.append(",");
+			writer.append(zipCode);
+			writer.append(",");
+			writer.append(status);
+			writer.append("\n");
+			writer.close();
+		} catch (IOException e) { // new FileWriter
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void deleteMemberFromDatabase() {
-		//TODO: Implement
+		List<Member> members = getMembersFromDatabase();
+		for (Member member : members) {
+			if (member.getNumber().equals(number)) {
+				members.remove(members.indexOf(member));
+				break;
+			}
+		}
+		try {
+		BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnMembers.csv"));
+			writer.append("name");
+			writer.append(",");
+			writer.append("number");
+			writer.append(",");
+			writer.append("address");
+			writer.append(",");
+			writer.append("city");
+			writer.append(",");
+			writer.append("state");
+			writer.append(",");
+			writer.append("zipCode");
+			writer.append(",");
+			writer.append("status");
+			writer.append("\n");
+			for (Member member: members) {
+				writer.append(member.getName());
+				writer.append(",");
+				writer.append(member.getNumber());
+				writer.append(",");
+				writer.append(member.getAddress());
+				writer.append(",");
+				writer.append(member.getCity());
+				writer.append(",");
+				writer.append(member.getState());
+				writer.append(",");
+				writer.append(member.getZipCode());
+				writer.append(",");
+				writer.append(member.getStatus());
+				writer.append("\n");
+			}
+			writer.close();
+		} catch (IOException e) { // new FileWriter
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
-	public void updateMemberInDatabase() {
-		//TODO: Implement
+	public void updateMemberInDatabase(String number) {
+		String newNumber = this.number;
+		this.number = number;
+		deleteMemberFromDatabase();
+		this.number = newNumber;
+		addMemberToDatabase();
 	}
 	
 	public List<Member> getMembersFromDatabase() {
@@ -46,7 +125,6 @@ public class Member {
 			String row = reader.readLine();
 			String[] memberData = new String[7];
 			while ((row = reader.readLine()) != null) {
-				System.out.println(row);
 				memberData = row.split(",");
 				Member member = new Member();
 				member.setName(memberData[0]);
@@ -58,6 +136,7 @@ public class Member {
 				member.setStatus(memberData[6]);
 				members.add(member);
 			}
+			reader.close();
 		} catch (FileNotFoundException e) { //new FileReader
 			// TODO Auto-generated catch block
 			e.printStackTrace();
