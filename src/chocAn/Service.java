@@ -16,12 +16,12 @@ public class Service {
 		//TODO: Implement
 	}
 	
-	public List<Member> getMemberServices(String number) {
+	public List<Service> getMemberServices(String number) {
 		//TODO: Implement
 		return null;
 	}
 	
-	public List<Provider> getProviderServices(String number) {
+	public List<Service> getProviderServices(String number) {
 		//TODO: Implement
 		return null;
 	}

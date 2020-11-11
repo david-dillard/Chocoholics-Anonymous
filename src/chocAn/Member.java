@@ -1,11 +1,17 @@
 package chocAn;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
 	
 	private String name;
 	private String number;
+	private String address;
 	private String city;
 	private String state;
 	private String zipCode;
@@ -34,8 +40,32 @@ public class Member {
 	}
 	
 	public List<Member> getMembersFromDatabase() {
-		//TODO: Implement
-		return null;
+		List<Member> members = new ArrayList<Member>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("ChocAnMembers.csv"));
+			String row = reader.readLine();
+			String[] memberData = new String[7];
+			while ((row = reader.readLine()) != null) {
+				System.out.println(row);
+				memberData = row.split(",");
+				Member member = new Member();
+				member.setName(memberData[0]);
+				member.setNumber(memberData[1]);
+				member.setAddress(memberData[2]);
+				member.setCity(memberData[3]);
+				member.setState(memberData[4]);
+				member.setZipCode(memberData[5]);
+				member.setStatus(memberData[6]);
+				members.add(member);
+			}
+		} catch (FileNotFoundException e) { //new FileReader
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) { //readLine
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return members;
 	}
 	
 	public String getName() {
@@ -52,6 +82,14 @@ public class Member {
 	
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	public String getCity() {

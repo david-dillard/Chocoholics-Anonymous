@@ -6,6 +6,7 @@ public class Provider {
 
 	private String name;
 	private String number;
+	private String address;
 	private String city;
 	private String state;
 	private String zipCode;
@@ -15,7 +16,7 @@ public class Provider {
 		return false;
 	}
 	
-	public Member getProviderByNumber(String number) {
+	public Provider getProviderByNumber(String number) {
 		//TODO: Implement
 		return null;
 	}
@@ -51,6 +52,14 @@ public class Provider {
 	
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	public String getCity() {
