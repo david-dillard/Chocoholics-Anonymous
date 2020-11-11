@@ -59,7 +59,6 @@ public class Member {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void deleteMemberFromDatabase() {
@@ -107,7 +106,6 @@ public class Member {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void updateMemberInDatabase(String number) {
