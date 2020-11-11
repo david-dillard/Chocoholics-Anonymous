@@ -1,11 +1,13 @@
 package chocAn;
 
+import javax.swing.JOptionPane;
+
 public class Interface {
 	private ManagerInterface manager;
 	private ProviderInterface provider;
 	private OperatorInterface operator;
 	
-	public void main(String[] args){
+	public static void main(String[] args){
 		
 	}
 	

@@ -13,21 +13,21 @@ public class ManagerInterface {
 	
 	public MemberReport requestMemberReport(){
 		MemberReport mrep = new MemberReport();
-		mrep = GenerateReports.generateMemberReport(String number);
+		mrep = GenerateReports.generateMemberReport(number);
 		
 		return mrep;
 	}
 	
 	public ProviderReport requestProviderReport(){
 		ProviderReport prep = new ProviderReport();
-		prep = GenerateReports.generateProviderReport(String number);
+		prep = GenerateReports.generateProviderReport(number);
 		
 		return prep;
 	}
 	
 	public SummaryReport requestSummaryReport(){
 		SummaryReport srep = new SummaryReport();
-		srep = GenerateReports.generateSummaryReport(List<Service> services);
+		srep = GenerateReports.generateSummaryReport(services);
 		
 		return srep;
 	}
