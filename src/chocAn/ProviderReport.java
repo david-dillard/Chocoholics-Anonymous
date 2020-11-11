@@ -28,7 +28,13 @@ public class ProviderReport extends Report{
 	}
 	
 	public void printReport() {
-		
+		String output = "Provider name:\t" + name + "\nProvider number:\t" + number + "\nProvider street address:\t" + address + "\nProvider City:\t" + city + "\nProvider state:/t" + state + "\nProvider ZIP code\t" + zipCode + "\n";
+		for(Service service: services) {
+			Member tempMember = new Member();
+			tempMember = tempMember.getMemberByNumber(service.getMemberNumber());
+			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were recieved by the computer:\t" + service.getComputerTime() + "\nMember name:/t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t$" + service.getFee() + "\n";
+		}
+		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t$" + weeklyFee;
 	}
 	
 	

@@ -28,11 +28,7 @@ public class SummaryReport extends Report{
 		}
 	}
 	
-	
-	
-	@Override
 	public void printReport() {
-		// TODO Auto-generated method stub
 		
 	}
 	
