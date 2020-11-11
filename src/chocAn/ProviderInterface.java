@@ -18,6 +18,30 @@ public class ProviderInterface {
 		JFrame frame = new JFrame("Provider Interface");
 		ImageIcon icon = new ImageIcon("duck.jpg");
 		Object[] possibilities = {"Verify Member Card", "Bill ChocAn", "Request Provider Directory"};
-		String s = (String)JOptionPane.showInputDialog(frame, "Select an option below.", "Customized Dialog", JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Verify Member Card");
+		Object[] possibilities2 = {"Card", "Number"};
+		String s = (String)JOptionPane.showInputDialog(frame, "Select an option below.", "Provider Interface", JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Verify Member Card");
+		if(s == "Verify Member Card") {
+			String a = (String)JOptionPane.showInputDialog(frame, "Member Card or Member Number?", "Member Validation", JOptionPane.PLAIN_MESSAGE, icon, possibilities2, "Card");
+			if(a == "Card") {
+				boolean valid = billing.verifyMemberCard();
+				if(valid = true) {
+					JOptionPane.showMessageDialog(frame, "VALIDATED");
+				} else {
+					JOptionPane.showMessageDialog(frame, "NOT VALIDATED");
+				}
+			} else if(a == "Number") {
+				String n = (String)JOptionPane.showInputDialog(frame, "Enter member number provided.", "Member Number", JOptionPane.PLAIN_MESSAGE, icon, null, "");
+				boolean valid = billing.verifyMemberNumber(n);
+				if(valid = true) {
+					JOptionPane.showMessageDialog(frame, "VALIDATED");
+				} else {
+					JOptionPane.showMessageDialog(frame, "NOT VALIDATED");
+				}
+			}
+		} else if(s == "Bill ChocAn") {
+			billing.recordInformation();
+		} else {
+			directory = request.requestDirectory();
+		}
 	}
 }
