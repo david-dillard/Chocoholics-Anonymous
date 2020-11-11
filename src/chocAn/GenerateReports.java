@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class GenerateReports {
 	
 	public MemberReport generateMemberReport(String number) {
-		
+		return null;
 	}
 	
 	public ProviderReport generateProviderReport(String number) {
-		
+		return null;
 	}
 	
 	public SummaryReport generateSummaryReport(List<Service> services) {
-		
+		return null;
 	}
 	
 	public void runAccountingProcedure() {
