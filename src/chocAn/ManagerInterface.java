@@ -79,9 +79,8 @@ public class ManagerInterface {
 	}
 	
 	public EftData requestEftData(){
-		
-		
-		
-		return null;
+		GenerateReports generateReport = new GenerateReports();
+		EftData eftData = generateReport.writeEftData();
+		return eftData;
 	}
 }

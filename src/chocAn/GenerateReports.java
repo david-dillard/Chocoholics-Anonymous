@@ -20,8 +20,8 @@ public class GenerateReports {
 	}
 	
 	public EftData writeEftData() {
-		//does stuff IDK
-		return null;
+		EftData eftData = new EftData();
+		return eftData;
 	}
 	
 	
@@ -54,11 +54,5 @@ public class GenerateReports {
 		
 		
 		writeEftData();
-		
 	}
-	
-	
-	
-	
-	
 }
