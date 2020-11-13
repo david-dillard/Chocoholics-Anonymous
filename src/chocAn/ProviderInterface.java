@@ -42,6 +42,7 @@ public class ProviderInterface {
 			billing.recordInformation();
 		} else {
 			directory = request.requestDirectory();
+			JOptionPane.showMessageDialog(frame,  "The Provider Directory has been emailed.");
 		}
 	}
 }
