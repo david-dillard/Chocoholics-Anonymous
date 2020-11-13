@@ -25,7 +25,11 @@ public class MemberReport extends Report {
 	public void printReport() {
 		String output = "Member name:\t" + name + "\nMember number:\t" + number + "\nMember street address:\t" + address + "\nMember city:\t" + city + "\nMember state:\t" + state + "\nMember ZIP code:\t" + zipCode + "\n";
 		for(Service service: services) {
-			output += "Service Name:\t"; //TODO
+			Provider tempProvider = new Provider();
+			tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
+			ProviderDirectory providerDirectory = new ProviderDirectory();
+			
+			output += "Date of service:\t" + service.getServiceDate() + "Provider name:\t" + tempProvider.getName() + "Service name:\t" + providerDirectory.getName(service.getServiceCode()); //TODO
 		}
 	}
 	

@@ -3,7 +3,7 @@ package chocAn;
 import java.util.*;
 
 public class ProviderReport extends Report{
-	private String name, number, address, city, state, zipCode, consulatations, weeklyFee;
+	private String name, number, address, city, state, zipCode, consulatations, weeklyFee = "$";
 	private List<Service> services = new ArrayList<Service>();
 	
 	public ProviderReport(String number) {
@@ -21,9 +21,15 @@ public class ProviderReport extends Report{
 			this.consulatations = String.valueOf(services.size());
 			double totalFee = 0;
 			for(Service service : services) {
+				String tempFee = service.getFee();
+				tempFee.replaceAll("$", "");
+				tempFee.replaceAll(",", "");
 				totalFee += Double.valueOf(service.getFee());
 			}
-			this.weeklyFee = String.valueOf(totalFee);
+			if(totalFee > 99999.99)
+				totalFee = 99999.99;
+			this.weeklyFee += String.valueOf(totalFee);
+			
 		}	
 	}
 	
@@ -35,6 +41,7 @@ public class ProviderReport extends Report{
 			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were recieved by the computer:\t" + service.getComputerTime() + "\nMember name:/t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t$" + service.getFee() + "\n";
 		}
 		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t$" + weeklyFee;
+		
 	}
 	
 	
