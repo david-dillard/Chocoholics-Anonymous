@@ -2,29 +2,56 @@ package chocAn;
 import java.util.List;
 import java.util.ArrayList;
 
+
+
+/**
+ * helper class that contains methods for generating Member, Provider, Summary, and EftData reports
+ * @author David Dillard
+ */
 public class GenerateReports {
 	
+	/**
+	 * constructs and returns a MemberReport given a member ID
+	 * @param number the member's identification number
+	 * @return a fully populated MemberReport 
+	 */
 	public MemberReport generateMemberReport(String number) {
 		MemberReport memberReport = new MemberReport(number);
 		return memberReport;
 	}
 	
+	/**
+	 * constructs and returns a ProviderReport given a provider ID
+	 * @param number the provider's identification number
+	 * @return a fully populated ProviderReport 
+	 */
 	public ProviderReport generateProviderReport(String number) {
 		ProviderReport providerReport = new ProviderReport(number);
 		return providerReport;
 	}
 	
+	/**
+	 * constructs and returns a SummaryReport given a list of services completed during the week
+	 * @param services list of services provided during the week
+	 * @return a fully populated SummaryReport
+	 */
 	public SummaryReport generateSummaryReport(List<Service> services) {
 		SummaryReport summaryReport = new SummaryReport(services);
 		return summaryReport;		
 	}
 	
+	/**
+	 * constructs and returns an EftData
+	 * @return fully populated EftData
+	 */
 	public EftData writeEftData() {
 		EftData eftData = new EftData();
 		return eftData;
 	}
 	
-	
+	/**
+	 * runs the main accounting procedure by generating a report for every Member and Provider as well as a SummaryReport and EftData
+	 */
 	public void runAccountingProcedure() {
 		
 		Member grandMember = new Member();
