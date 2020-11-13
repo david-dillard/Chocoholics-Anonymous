@@ -8,20 +8,28 @@ import javax.swing.JOptionPane;
 
 //Numbers NEED to be 9
 //Names CANNOT exceed 25 characters
-
+/**
+ * 
+ * @author Jacob Grinstead
+ *
+ */
 public class Manage {
-	
+	/**
+	 * 
+	 */
 	public Manage(){
 		
 	}
 	
+	/**
+	 * 
+	 */
 	public void manageMember(){
 		String operation, ret;
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
 		Object[] possibilities = {"Add Member", "Update Member", "Delete Member"};
-		Object[] possibilities2 = {"Card","Number"};
-		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Verify Member Card");
+		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Member");
 		
 		if (operation == "add"){
 			ret=addMember();
@@ -33,17 +41,18 @@ public class Manage {
 		JOptionPane.showMessageDialog(frame, ret);
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
 	public String addMember(){
 		String name, number, address, city, state, zipCode, status;
-		boolean found = false;
 		//dialogue box required to get info
 		//List<Member> members = Member.getMembersFromDatabase();
-		Member poss = new Member();
-		poss.getMemberByNumber(number);
+		Member temp = new Member();
+		Member poss = temp.getMemberByNumber(number);
 		
-		if(poss != null) found = true;
-		
-		if (found){
+		if (poss != null){
 			return "This member already exists in the ChocAn database.";
 		}else{
 			Member curr = new Member();
@@ -57,20 +66,23 @@ public class Manage {
 			curr.addMemberToDatabase();
 			return "The member has been added to the ChocAn database.";
 		}
-		return "Task failed";
 	}
 	
-	//Still needs work
+	/**
+	 * 
+	 * @return String
+	 */
 	public String updateMember(){
 		String name, number, address, city, state, zipCode, status;
-		boolean found = false;
 		//dialogue box required to get info
-		List<Member> members = Member.getMembersFromDatabase();
-		//code to search list && set boolean
-		if (!found){
+		Member temp = new Member();
+		Member curr = temp.getMemberByNumber(number);
+		
+		if (curr==null){
 			return "This member does not exist in the ChocAn database.";
 		}else{
-			int oldnum = 
+			String oldnum = curr.getNumber();
+			//dialogue box to add new information
 			curr.setName(name);
 			curr.setNumber(number);
 			curr.setAddress(address);
@@ -78,29 +90,39 @@ public class Manage {
 			curr.setState(state);
 			curr.setZipCode(zipCode);
 			curr.setStatus(status);
-			curr.addMemberToDatabase();
+			curr.updateMemberInDatabase(oldnum);
 			return "The member has been updated.";
 		}
-		return "Task failed";
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
 	public String deleteMember(){
-		boolean found = false;
+		String number;
 		//dialogue box required to get info
-		List<Member> members = Member.getMembersFromDatabase();
+		Member temp = new Member();
+		Member curr = temp.getMemberByNumber(number);
 		//code to search list && set boolean
-		if (!found){
+		if (curr==null){
 			return "This member does not exist in the ChocAn database.";
 		}else{
-
+			curr.deleteMemberFromDatabase();
 			return "The member has been removed from the ChocAn database.";
 		}
-		return "Task failed";
 	}
 	
+	/**
+	 * 
+	 */
 	public void manageProvider(){
 		String operation, ret;
-		//dialogue box required to get info
+		JFrame frame = new JFrame("ChocAn");
+		ImageIcon icon = new ImageIcon("choclate.png");
+		Object[] possibilities = {"Add Provider", "Update Provider", "Delete Provider"};
+		Object[] possibilities2 = {"Card","Number"};
+		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Verify Member Card");
 		
 		if (operation == "add"){
 			ret=addProvider();
@@ -109,9 +131,13 @@ public class Manage {
 		}else{
 			ret=deleteProvider();
 		}
-		//add a dialogue box that includes message ret
+		JOptionPane.showMessageDialog(frame, ret);
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
 	public String addProvider(){
 		String name, number, address, city, state, zipCode;
 		boolean found = false;
@@ -134,6 +160,10 @@ public class Manage {
 		return "Task failed";
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
 	public String updateProvider(){
 		String name, number, address, city, state, zipCode;
 		boolean found = false;
@@ -156,6 +186,10 @@ public class Manage {
 		return "Task failed";
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
 	public String deleteProvider(){
 		boolean found = false;
 		//dialogue box required to get info

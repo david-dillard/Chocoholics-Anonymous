@@ -4,6 +4,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author Jacob Grinstead
+ *
+ */
 public class Interface {
 	private ManagerInterface manager;
 	private ProviderInterface provider;
@@ -14,7 +19,12 @@ public class Interface {
 	}
 	
 	public static void prompt(){
+		String operation;
 		JFrame frame = new JFrame("ChocAn");
-		JOptionPane.showMessageDialog(frame, "Eggs are not supposed to be green.");
+		ImageIcon icon = new ImageIcon("choclate.png");
+		Object[] possibilities = {"Operator Interface", "Provider Interface", "Manager Interface"};
+		operation = (String)JOptionPane.showInputDialog(frame, "Which interface would you like to access?","ChocAn Terminal Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Operator Interface");
+		
+		System.out.print(operation);
 	}
 }
