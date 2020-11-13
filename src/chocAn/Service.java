@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Service {
 	
 	private String computerTime;
@@ -24,9 +27,9 @@ public class Service {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("ServiceRecords.csv", true));
 			writer.append(computerTime + "," + serviceDate + "," + providerNumber + "," + memberNumber + "," + serviceCode + "," + comments + "," + fee +"\n");
 			writer.close();
-		} catch (IOException e) { // new FileWriter
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ServiceRecords.csv file.");
 		}
 	}
 	
@@ -51,12 +54,12 @@ public class Service {
 				}
 			}
 			reader.close();
-		} catch (FileNotFoundException e) { //new FileReader
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) { //readLine
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not find ServiceRecords.csv file.");
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ServiceRecords.csv file.");
 		}
 		return services;
 	}
@@ -82,12 +85,12 @@ public class Service {
 				}
 			}
 			reader.close();
-		} catch (FileNotFoundException e) { //new FileReader
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) { //readLine
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not find ServiceRecords.csv file.");
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ServiceRecords.csv file.");
 		}
 		return services;
 	}

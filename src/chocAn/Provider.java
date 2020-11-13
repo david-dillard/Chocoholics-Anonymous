@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Provider {
 
 	private String name;
@@ -33,7 +36,7 @@ public class Provider {
 			if (provider.getNumber().equals(number))
 				return provider;
 		}
-		return null; //needs for not null check on other end
+		return null;
 	}
 	
 	public void addProviderToDatabase() {
@@ -41,9 +44,9 @@ public class Provider {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnProviders.csv", true));
 			writer.append(name + "," + number + "," + address + "," + city + "," + state + "," + zipCode + "\n");
 			writer.close();
-		} catch (IOException e) { // new FileWriter
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnProviders.csv file.");
 		}
 	}
 	
@@ -67,9 +70,9 @@ public class Provider {
 				writer.append(provider.getZipCode() + "\n");
 			}
 			writer.close();
-		} catch (IOException e) { // new FileWriter
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnProviders.csv file.");
 		}
 	}
 	
@@ -99,12 +102,12 @@ public class Provider {
 				providers.add(provider);
 			}
 			reader.close();
-		} catch (FileNotFoundException e) { //new FileReader
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) { //readLine
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not find ChocAnProviders.csv file.");
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnProviders.csv file.");
 		}
 		return providers;
 	}

@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Member {
 	
 	private String name;
@@ -34,7 +37,7 @@ public class Member {
 			if (member.getNumber().equals(number))
 				return member;
 		}
-		return null; //needs for not null check on other end
+		return null;
 	}
 	
 	public void addMemberToDatabase() {
@@ -42,9 +45,9 @@ public class Member {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnMembers.csv", true));
 			writer.append(name + "," + number + "," + address + "," + city + "," + state + "," + zipCode + "," + status +"\n");
 			writer.close();
-		} catch (IOException e) { // new FileWriter
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnMembers.csv file.");
 		}
 	}
 	
@@ -69,9 +72,9 @@ public class Member {
 				writer.append(member.getStatus() + "\n");
 			}
 			writer.close();
-		} catch (IOException e) { // new FileWriter
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnMembers.csv file.");
 		}
 	}
 	
@@ -102,12 +105,12 @@ public class Member {
 				members.add(member);
 			}
 			reader.close();
-		} catch (FileNotFoundException e) { //new FileReader
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) { //readLine
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not find ChocAnMembers.csv file.");
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read lines in ChocAnMembers.csv file.");
 		}
 		return members;
 	}
