@@ -39,18 +39,7 @@ public class Provider {
 	public void addProviderToDatabase() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnProviders.csv", true));
-			writer.append(name);
-			writer.append(",");
-			writer.append(number);
-			writer.append(",");
-			writer.append(address);
-			writer.append(",");
-			writer.append(city);
-			writer.append(",");
-			writer.append(state);
-			writer.append(",");
-			writer.append(zipCode);
-			writer.append("\n");
+			writer.append(name + "," + number + "," + address + "," + city + "," + state + "," + zipCode + "\n");
 			writer.close();
 		} catch (IOException e) { // new FileWriter
 			// TODO Auto-generated catch block
@@ -68,31 +57,14 @@ public class Provider {
 		}
 		try {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnProviders.csv"));
-			writer.append("name");
-			writer.append(",");
-			writer.append("number");
-			writer.append(",");
-			writer.append("address");
-			writer.append(",");
-			writer.append("city");
-			writer.append(",");
-			writer.append("state");
-			writer.append(",");
-			writer.append("zipCode");
-			writer.append("\n");
+		writer.append("name,number,address,city,state,zipCode\n");
 			for (Provider provider: providers) {
-				writer.append(provider.getName());
-				writer.append(",");
-				writer.append(provider.getNumber());
-				writer.append(",");
-				writer.append(provider.getAddress());
-				writer.append(",");
-				writer.append(provider.getCity());
-				writer.append(",");
-				writer.append(provider.getState());
-				writer.append(",");
-				writer.append(provider.getZipCode());
-				writer.append("\n");
+				writer.append(provider.getName() + ",");
+				writer.append(provider.getNumber() + ",");
+				writer.append(provider.getAddress() + ",");
+				writer.append(provider.getCity() + ",");
+				writer.append(provider.getState() + ",");
+				writer.append(provider.getZipCode() + "\n");
 			}
 			writer.close();
 		} catch (IOException e) { // new FileWriter

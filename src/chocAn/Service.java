@@ -1,5 +1,12 @@
 package chocAn;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
@@ -13,17 +20,76 @@ public class Service {
 	private String fee;
 	
 	public void addToDatabase() {
-		//TODO: Implement
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("ServiceRecords.csv", true));
+			writer.append(computerTime + "," + serviceDate + "," + providerNumber + "," + memberNumber + "," + serviceCode + "," + comments + "," + fee +"\n");
+			writer.close();
+		} catch (IOException e) { // new FileWriter
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Service> getMemberServices(String number) {
-		//TODO: Implement
-		return null;
+		List<Service> services = new ArrayList<Service>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("ServiceRecords.csv"));
+			String row = reader.readLine();
+			String[] serviceData = new String[7];
+			while ((row = reader.readLine()) != null) {
+				serviceData = row.split(",");
+				if (serviceData[3].equals(number)) {
+					Service service = new Service();
+					service.setComputerTime(serviceData[0]);
+					service.setServiceDate(serviceData[1]);
+					service.setProviderNumber(serviceData[2]);
+					service.setMemberNumber(serviceData[3]);
+					service.setServiceCode(serviceData[4]);
+					service.setComments(serviceData[5]);
+					service.setFee(serviceData[6]);
+					services.add(service);
+				}
+			}
+			reader.close();
+		} catch (FileNotFoundException e) { //new FileReader
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) { //readLine
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return services;
 	}
 	
 	public List<Service> getProviderServices(String number) {
-		//TODO: Implement
-		return null;
+		List<Service> services = new ArrayList<Service>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("ServiceRecords.csv"));
+			String row = reader.readLine();
+			String[] serviceData = new String[7];
+			while ((row = reader.readLine()) != null) {
+				serviceData = row.split(",");
+				if (serviceData[2].equals(number)) {
+					Service service = new Service();
+					service.setComputerTime(serviceData[0]);
+					service.setServiceDate(serviceData[1]);
+					service.setProviderNumber(serviceData[2]);
+					service.setMemberNumber(serviceData[3]);
+					service.setServiceCode(serviceData[4]);
+					service.setComments(serviceData[5]);
+					service.setFee(serviceData[6]);
+					services.add(service);
+				}
+			}
+			reader.close();
+		} catch (FileNotFoundException e) { //new FileReader
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) { //readLine
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return services;
 	}
 	
 	public String getComputerTime() {

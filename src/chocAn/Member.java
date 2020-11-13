@@ -40,20 +40,7 @@ public class Member {
 	public void addMemberToDatabase() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnMembers.csv", true));
-			writer.append(name);
-			writer.append(",");
-			writer.append(number);
-			writer.append(",");
-			writer.append(address);
-			writer.append(",");
-			writer.append(city);
-			writer.append(",");
-			writer.append(state);
-			writer.append(",");
-			writer.append(zipCode);
-			writer.append(",");
-			writer.append(status);
-			writer.append("\n");
+			writer.append(name + "," + number + "," + address + "," + city + "," + state + "," + zipCode + "," + status +"\n");
 			writer.close();
 		} catch (IOException e) { // new FileWriter
 			// TODO Auto-generated catch block
@@ -71,35 +58,15 @@ public class Member {
 		}
 		try {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("ChocAnMembers.csv"));
-			writer.append("name");
-			writer.append(",");
-			writer.append("number");
-			writer.append(",");
-			writer.append("address");
-			writer.append(",");
-			writer.append("city");
-			writer.append(",");
-			writer.append("state");
-			writer.append(",");
-			writer.append("zipCode");
-			writer.append(",");
-			writer.append("status");
-			writer.append("\n");
+			writer.append("name,number,address,city,state,zipCode,status\n");
 			for (Member member: members) {
-				writer.append(member.getName());
-				writer.append(",");
-				writer.append(member.getNumber());
-				writer.append(",");
-				writer.append(member.getAddress());
-				writer.append(",");
-				writer.append(member.getCity());
-				writer.append(",");
-				writer.append(member.getState());
-				writer.append(",");
-				writer.append(member.getZipCode());
-				writer.append(",");
-				writer.append(member.getStatus());
-				writer.append("\n");
+				writer.append(member.getName() + ",");
+				writer.append(member.getNumber() + ",");
+				writer.append(member.getAddress() + ",");
+				writer.append(member.getCity() + ",");
+				writer.append(member.getState() + ",");
+				writer.append(member.getZipCode() + ",");
+				writer.append(member.getStatus() + "\n");
 			}
 			writer.close();
 		} catch (IOException e) { // new FileWriter
