@@ -3,6 +3,8 @@ package chocAn;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 public class MemberReport extends Report {
 	private String name, number, address, city, state, zipCode;
 	private List<Service> services = new ArrayList<Service>();
@@ -31,6 +33,7 @@ public class MemberReport extends Report {
 			
 			output += "Date of service:\t" + service.getServiceDate() + "Provider name:\t" + tempProvider.getName() + "Service name:\t" + providerDirectory.getName(service.getServiceCode()); //TODO
 		}
+		JOptionPane.showMessageDialog(null, output);
 	}
 	
 	

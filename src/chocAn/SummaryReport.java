@@ -2,6 +2,11 @@ package chocAn;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
+import java.text.SimpleDateFormat;
+import java.time.*;
+
 public class SummaryReport extends Report{
 	private List<Provider> providers = new ArrayList<Provider>();
 	private int totalProviders = 0, totalConsultations = 0;
@@ -39,16 +44,20 @@ public class SummaryReport extends Report{
 			List<Service> tempServices = tempService.getProviderServices("");
 			double providerFee = 0;
 			for(Service service : tempServices) {
-				String serviceFee = service.getFee();
-				serviceFee.replaceAll("$", "");
-				serviceFee.replaceAll(",", "");
-				providerFee += Double.valueOf(serviceFee);
+//				SimpleDateFormat formatter = new SimpleDateFormat("MM-DD-YYYY");
+//				Date date = new Date();
+//				String todaysDate = formatter.format(date);
+//				if(todaysDate.compareTo(service.getServiceDate()) > 7) {
+					String serviceFee = service.getFee();
+					serviceFee.replaceAll("$", "");
+					serviceFee.replaceAll(",", "");
+					providerFee += Double.valueOf(serviceFee);
+//				}
 			}
-			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + providerFee + "\n";	
+			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2g%n",providerFee) + "\n";	
 		}
-		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + totalFee;
-		
-		
+		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2g%n",totalFee);
+		JOptionPane.showMessageDialog(null, output);	
 	}
 	
 
