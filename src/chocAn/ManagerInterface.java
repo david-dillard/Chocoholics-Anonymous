@@ -8,7 +8,33 @@ public class ManagerInterface {
 	
 	
 	public void prompt(){
-		
+		boolean flag = false;
+		while(true) {
+		//Custom button text
+			String[] options = new String[] {"Summary", "Member", "Provider", "EftData", "Exit"};
+	    	int response = JOptionPane.showOptionDialog(null, "Which report would you like?", "Manager Options",
+	    			JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+	    			null, options, options[0]);
+	    	switch(response) {
+	    		case 0:
+	    			requestSummaryReport();
+	    			break;
+	    		case 1:
+	    			requestMemberReport();
+	    			break;
+	    		case 2:
+	    			requestProviderReport();
+	    			break;
+	    		case 3:
+	    			requestEftData();
+	    			break;
+	    		case 4:
+	    			flag = true;	
+	    	}
+	    	if(flag == true) {
+	    		break;
+	    	}
+	    }
 	}
 	
 	public MemberReport requestMemberReport() {
@@ -54,5 +80,8 @@ public class ManagerInterface {
 	
 	public EftData requestEftData(){
 		
+		
+		
+		return null;
 	}
 }

@@ -21,6 +21,7 @@ public class GenerateReports {
 	
 	public EftData writeEftData() {
 		//does stuff IDK
+		return null;
 	}
 	
 	
