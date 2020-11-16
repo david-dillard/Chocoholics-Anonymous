@@ -11,28 +11,26 @@ import javax.swing.JOptionPane;
  */
 public class OperatorInterface {
 	private Manage manage;
-	private boolean leave;
+	private String str;
 	
 	public OperatorInterface(){
-		leave=false;
-		while(leave==false){
+		boolean cont = true;
+		while(cont){
 			prompt();
+			if(str=="Manage Member"){
+				
+			}else if(str=="Manage Provider"){
+				System.out.println("");
+			}else{
+				System.out.println("Breaking from operator interface");
+				cont=false;
+			}
 		}
 	}
 	public void prompt(){
-		String type;
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
 		Object[] possibilities = {"Manage Member","Manage Provider", "Exit"};
-		type = (String)JOptionPane.showInputDialog(frame, "What would you like to manage?","ChocAn Operator Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Manage Member");
-		if(type=="Exit"){
-			
-		}else if(type=="Manage Member"){
-			
-		}else if(type=="Manage Provider"){
-			
-		}else{
-			
-		}
+		str = (String)JOptionPane.showInputDialog(frame, "What would you like to manage?","ChocAn Operator Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Manage Member");
 	}
 }
