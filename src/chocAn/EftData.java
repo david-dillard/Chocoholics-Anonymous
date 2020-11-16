@@ -10,9 +10,9 @@ import java.io.IOException;
  */
 public class EftData extends Report{
 	
-	String providerName;
-	String providerNumber;
-	String amount;
+	private String providerName;
+	private String providerNumber;
+	private String amount;
 	
 	/**
 	 * populates the attributes providerName, providerNumber, and amount

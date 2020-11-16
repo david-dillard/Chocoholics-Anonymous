@@ -52,7 +52,7 @@ public class ManagerInterface {
 		
 		String memberNumber = JOptionPane.showInputDialog("What is the identification number of the member you wish to run the record of?");
 		Member temp = new Member();
-		if(temp.searchMemberNumber(memberNumber)) {
+		if(temp.searchMemberNumber(memberNumber) == false) {
 			JOptionPane.showMessageDialog(null, "ERROR: That member does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
@@ -70,7 +70,7 @@ public class ManagerInterface {
 		
 		String providerNumber = JOptionPane.showInputDialog("What is the identification number of the provider you wish to run the record of?");		
 		Provider temp = new Provider();
-		if(temp.searchProviderNumber(providerNumber)) {
+		if(temp.searchProviderNumber(providerNumber) == false) {
 			JOptionPane.showMessageDialog(null, "ERROR: That provider does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
@@ -111,7 +111,7 @@ public class ManagerInterface {
 		Provider temp = new Provider();
 		GenerateReports generateReport = new GenerateReports();
 		String providerNumber = JOptionPane.showInputDialog("What is the identification number of the provider you wish to run the EFT data of?");
-		if(temp.searchProviderNumber(providerNumber)) {
+		if(temp.searchProviderNumber(providerNumber) == false) {
 			JOptionPane.showMessageDialog(null, "ERROR: That provider does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}

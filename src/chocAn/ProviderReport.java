@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
-
+import java.time.format.*;
 
 public class ProviderReport extends Report{
 	private String name, number, address, city, state, zipCode, consulatations, weeklyFee;
@@ -38,7 +38,8 @@ public class ProviderReport extends Report{
 			List<Service> allServices = tempService.getProviderServices(number);
 			for(Service service : allServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
-				LocalDate serviceDate = LocalDate.parse(service.getServiceDate());
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
 				if(!cutoffDate.isAfter(serviceDate)) {
 					this.services.add(service);	
 				}
@@ -47,9 +48,10 @@ public class ProviderReport extends Report{
 			double totalFee = 0;
 			for(Service service : services) {
 				String tempFee = service.getFee();
-				tempFee.replaceAll("$", "");
-				tempFee.replaceAll(",", "");
-				totalFee += Double.parseDouble(service.getFee());
+				tempFee = tempFee.replace("$", "");
+				tempFee = tempFee.replace(",", "");
+				System.out.println(tempFee);
+				totalFee += Double.parseDouble(tempFee);
 			}
 			if(totalFee > 99999.99)
 				totalFee = 99999.99;
