@@ -51,8 +51,12 @@ public class ManagerInterface {
 		GenerateReports generateReport = new GenerateReports();
 		
 		String memberNumber = JOptionPane.showInputDialog("What is the identification number of the member you wish to run the record of?");
+		Member temp = new Member();
+		if(temp.searchMemberNumber(memberNumber)) {
+			JOptionPane.showMessageDialog(null, "ERROR: That member does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
 		MemberReport memberReport = generateReport.generateMemberReport(memberNumber);	
-		
 		memberReport.printReport();
 		return memberReport;
 	}
@@ -65,8 +69,12 @@ public class ManagerInterface {
 		GenerateReports generateReport = new GenerateReports();
 		
 		String providerNumber = JOptionPane.showInputDialog("What is the identification number of the provider you wish to run the record of?");		
-		ProviderReport providerReport = generateReport.generateProviderReport(providerNumber);	
-		
+		Provider temp = new Provider();
+		if(temp.searchProviderNumber(providerNumber)) {
+			JOptionPane.showMessageDialog(null, "ERROR: That provider does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+		ProviderReport providerReport = generateReport.generateProviderReport(providerNumber);
 		providerReport.printReport();
 		return providerReport;
 	
@@ -100,8 +108,16 @@ public class ManagerInterface {
 	 * @return the generated EftReport
 	 */
 	public EftData requestEftData(){
+		Provider temp = new Provider();
 		GenerateReports generateReport = new GenerateReports();
-		EftData eftData = generateReport.writeEftData();
+		String providerNumber = JOptionPane.showInputDialog("What is the identification number of the provider you wish to run the EFT data of?");
+		if(temp.searchProviderNumber(providerNumber)) {
+			JOptionPane.showMessageDialog(null, "ERROR: That provider does not exist.", "Inane error", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+		ProviderReport providerReport = generateReport.generateProviderReport(providerNumber);
+		EftData eftData = generateReport.writeEftData(providerReport);
+		eftData.printReport();
 		return eftData;
 	}
 }

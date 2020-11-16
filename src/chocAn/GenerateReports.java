@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 /**
  * helper class that contains methods for generating Member, Provider, Summary, and EftData reports
+ * 
  * @author David Dillard
+ * @version 1.0
  */
 public class GenerateReports {
 	
@@ -44,13 +46,13 @@ public class GenerateReports {
 	 * constructs and returns an EftData
 	 * @return fully populated EftData
 	 */
-	public EftData writeEftData() {
-		EftData eftData = new EftData();
+	public EftData writeEftData(ProviderReport providerReport) {
+		EftData eftData = new EftData(providerReport.getName(), providerReport.getNumber(), providerReport.getWeeklyFee());
 		return eftData;
 	}
 	
 	/**
-	 * runs the main accounting procedure by generating a report for every Member and Provider as well as a SummaryReport and EftData
+	 * runs the main accounting procedure by generating a report for every Member and Provider as well as each provider's EFT Data and a SummaryReport
 	 */
 	public void runAccountingProcedure() {
 		
@@ -67,6 +69,8 @@ public class GenerateReports {
 		for(Provider provider: providers) {
 			ProviderReport providerReport = generateProviderReport(provider.getNumber());
 			providerReport.printReport();
+			EftData eftData = writeEftData(providerReport);
+			eftData.printReport();
 		}
 		
 	
@@ -80,6 +84,6 @@ public class GenerateReports {
 		summaryReport.printReport();
 		
 		
-		writeEftData();
+		
 	}
 }
