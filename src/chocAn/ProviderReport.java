@@ -49,7 +49,7 @@ public class ProviderReport extends Report{
 				String tempFee = service.getFee();
 				tempFee.replaceAll("$", "");
 				tempFee.replaceAll(",", "");
-				totalFee += Double.valueOf(service.getFee());
+				totalFee += Double.parseDouble(service.getFee());
 			}
 			if(totalFee > 99999.99)
 				totalFee = 99999.99;
@@ -67,7 +67,7 @@ public class ProviderReport extends Report{
 		}
 		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t$" + weeklyFee;
 		try {
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();
 			FileWriter providerReport = new FileWriter(name + formatter.format(date) + ".txt");
 			providerReport.write(output);

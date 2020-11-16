@@ -53,14 +53,16 @@ public class SummaryReport extends Report{
 					String serviceFee = service.getFee();
 					serviceFee.replaceAll("$", "");
 					serviceFee.replaceAll(",", "");
-					providerFee += Double.valueOf(serviceFee);
+					providerFee += Double.parseDouble(serviceFee);
 				}
 			}
 			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2g%n",providerFee) + "\n";	
 		}
 		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2g%n",totalFee);
 		try {
-			FileWriter summaryReport = new FileWriter("SummaryReport.txt");
+			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
+		    Date date = new Date();
+			FileWriter summaryReport = new FileWriter("Summary" +formatter.format(date) + ".txt");
 			summaryReport.write(output);
 			summaryReport.close();
 		} catch(IOException e) {
