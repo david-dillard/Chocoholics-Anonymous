@@ -5,9 +5,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
+ * This class is the main interface which is used to interact with the ChocAn database
  * 
  * @author Jacob Grinstead
- *
+ * @version 1.0
  */
 public class Interface {
 	private static ManagerInterface manager;
@@ -15,6 +16,10 @@ public class Interface {
 	private static OperatorInterface operator;
 	private static String str;
 	
+	/**
+	 * This is the main code of the program. It begins by asking a user which terminal is to be accessed
+	 * @param args
+	 */
 	public static void main(String[] args){
 		boolean cont=true;
 		while(cont){
@@ -41,6 +46,9 @@ public class Interface {
 		}
 	}
 	
+	/**
+	 * This method prompts the user via a dialog box
+	 */
 	public static void prompt(){
 		String operation;
 		JFrame frame = new JFrame("ChocAn");

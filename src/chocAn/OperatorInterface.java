@@ -5,14 +5,18 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
+ * This class allows access to the operator interface, which allows members and providers to be managed
  * 
  * @author Jacob Grinstead
- *
+ * @version 1.0
  */
 public class OperatorInterface {
 	private Manage manage;
 	private String str;
 	
+	/**
+	 * This is the main method for the class. It determines how to direct an operator into the Manage class
+	 */
 	public OperatorInterface(){
 		manage=new Manage();
 		boolean cont = true;
@@ -32,6 +36,10 @@ public class OperatorInterface {
 			}
 		}
 	}
+	
+	/**
+	 * This method prompts a user for what they would like to do with a dialog box
+	 */
 	public void prompt(){
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");

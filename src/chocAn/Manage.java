@@ -1,23 +1,23 @@
 package chocAn;
 
-import java.util.List;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-//Numbers NEED to be 9 digits long
-//Names CANNOT exceed 25 characters
 /**
+ * This class is the main manage class.
+ * It handles inserts, updates, and deletions regarding members and providers.
+ * Interacts directly with the ChocAn database
  * 
  * @author Jacob Grinstead
- *
+ * @version 1.0
  */
 public class Manage {
 	private JFrame frame;
 	private ImageIcon icon;
+	
 	/**
-	 * 
+	 * This constructor starts by providing information to the class variables
 	 */
 	public Manage(){
 		frame = new JFrame("ChocAn");
@@ -25,7 +25,7 @@ public class Manage {
 	}
 	
 	/**
-	 * 
+	 * This method handles add, update, and delete member
 	 */
 	public void manageMember(){
 		String operation, ret;
@@ -47,8 +47,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method gets input from a user, transfers that input into a member object, and adds
+	 * the member to the ChocAn database
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String addMember(){
 		System.out.println("In addMember()");
@@ -119,8 +121,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method gets input from a user, then checks to see if the member exists in the database. If so, 
+	 * the input is used to change the information stored in the member object
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String updateMember(){
 		System.out.println("In updateMember()");
@@ -199,8 +203,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method gets input from a user, then searches the ChocAn database. If the member is found,
+	 * it is then deleted from the database
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String deleteMember(){
 		System.out.println("In deleteMember()");
@@ -225,7 +231,8 @@ public class Manage {
 	}
 	
 	/**
-	 * 
+	 * This method is in charge of inserting, updating, and deleting members to in and from the ChocAn database.
+	 * It takes user input and then directs them to the correct method
 	 */
 	public void manageProvider(){
 		String operation, ret;
@@ -248,8 +255,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method takes user input, puts it into a new provider object, then adds the object to
+	 * the database, provided that the object does not already exist
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String addProvider(){
 		System.out.println("In addProvider()");
@@ -316,8 +325,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method takes user input, searches for the corresponding provider,and then updates the object
+	 * with the input.
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String updateProvider(){
 		System.out.println("In updateProvider()");
@@ -390,8 +401,10 @@ public class Manage {
 	}
 	
 	/**
+	 * This method takes user input, and then searches for the corresponding provider object. If found,
+	 * the object is then deleted from the ChocAn database
 	 * 
-	 * @return String
+	 * @return String - a message that indicates if the method was successful
 	 */
 	public String deleteProvider(){
 		System.out.println("In deleteProvider()");
