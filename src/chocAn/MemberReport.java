@@ -53,12 +53,12 @@ public class MemberReport extends Report {
 			tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
 			ProviderDirectory providerDirectory = new ProviderDirectory();
 			
-			output += "Date of service:\t" + service.getServiceDate() + "Provider name:\t" + tempProvider.getName() + "Service name:\t" + providerDirectory.getName(service.getServiceCode());
+			output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + providerDirectory.getName(service.getServiceCode()) +"\n";
 		}
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 			    Date date = new Date(); 
-			FileWriter memberReport = new FileWriter( name + formatter.format(date) +".txt");
+			FileWriter memberReport = new FileWriter(name + formatter.format(date) +".txt");
 			memberReport.write(output);
 			memberReport.close();
 		} catch(IOException e) {
