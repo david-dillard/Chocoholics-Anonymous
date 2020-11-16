@@ -2,6 +2,8 @@ package chocAn;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 
@@ -33,7 +35,14 @@ public class ProviderReport extends Report{
 			this.city = tempProvider.getCity();
 			this.state = tempProvider.getState();
 			this.zipCode = tempProvider.getZipCode();
-			this.services.addAll(tempService.getProviderServices(number));
+			List<Service> allServices = tempService.getProviderServices(number);
+			for(Service service : allServices) {
+				LocalDate cutoffDate = LocalDate.now().minusDays(7);
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate());
+				if(!cutoffDate.isAfter(serviceDate)) {
+					this.services.add(service);	
+				}
+			}
 			this.consulatations = String.valueOf(services.size());
 			double totalFee = 0;
 			for(Service service : services) {
@@ -58,7 +67,9 @@ public class ProviderReport extends Report{
 		}
 		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t$" + weeklyFee;
 		try {
-			FileWriter providerReport = new FileWriter("ProviderReport.txt");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+		    Date date = new Date();
+			FileWriter providerReport = new FileWriter(name + formatter.format(date) + ".txt");
 			providerReport.write(output);
 			providerReport.close();
 		} catch(IOException e) {

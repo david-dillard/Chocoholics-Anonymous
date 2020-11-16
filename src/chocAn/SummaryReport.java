@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.*;
+import java.time.format.*;
+import java.time.temporal.TemporalAccessor;
 
 public class SummaryReport extends Report{
 	private List<Provider> providers = new ArrayList<Provider>();
@@ -45,15 +47,14 @@ public class SummaryReport extends Report{
 			List<Service> tempServices = tempService.getProviderServices("");
 			double providerFee = 0;
 			for(Service service : tempServices) {
-//				SimpleDateFormat formatter = new SimpleDateFormat("MM-DD-YYYY");
-//				Date date = new Date();
-//				String todaysDate = formatter.format(date);
-//				if(todaysDate.compareTo(service.getServiceDate()) > 7) {
+				LocalDate cutoffDate = LocalDate.now().minusDays(7);
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate());
+				if(!cutoffDate.isAfter(serviceDate)) {
 					String serviceFee = service.getFee();
 					serviceFee.replaceAll("$", "");
 					serviceFee.replaceAll(",", "");
 					providerFee += Double.valueOf(serviceFee);
-//				}
+				}
 			}
 			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2g%n",providerFee) + "\n";	
 		}
