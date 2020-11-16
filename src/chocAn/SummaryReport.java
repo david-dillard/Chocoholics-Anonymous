@@ -2,8 +2,9 @@ package chocAn;
 
 import java.util.*;
 
-import javax.swing.JOptionPane;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 
@@ -57,7 +58,14 @@ public class SummaryReport extends Report{
 			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2g%n",providerFee) + "\n";	
 		}
 		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2g%n",totalFee);
-		JOptionPane.showMessageDialog(null, output);	
+		try {
+			FileWriter summaryReport = new FileWriter("SummaryReport.txt");
+			summaryReport.write(output);
+			summaryReport.close();
+		} catch(IOException e) {
+			System.out.println("An error occurred.");
+		    e.printStackTrace();
+		}	
 	}
 	
 

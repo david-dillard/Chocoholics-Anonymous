@@ -1,12 +1,26 @@
 package chocAn;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
-import javax.swing.JOptionPane;
 
 public class ProviderReport extends Report{
 	private String name, number, address, city, state, zipCode, consulatations, weeklyFee;
 	private List<Service> services = new ArrayList<Service>();
+	
+	
+	public String getName() {
+		return this.name;
+	}
+
+	public String getNumber() {
+		return this.name;
+	}
+
+	public String getWeeklyFee() {
+		return this.weeklyFee;
+	}
 	
 	public ProviderReport(String number) {
 		Provider tempProvider = new Provider();
@@ -43,7 +57,14 @@ public class ProviderReport extends Report{
 			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were recieved by the computer:\t" + service.getComputerTime() + "\nMember name:/t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t$" + service.getFee() + "\n";
 		}
 		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t$" + weeklyFee;
-		JOptionPane.showMessageDialog(null, output);
+		try {
+			FileWriter providerReport = new FileWriter("ProviderReport.txt");
+			providerReport.write(output);
+			providerReport.close();
+		} catch(IOException e) {
+			System.out.println("An error occurred.");
+		    e.printStackTrace();
+		}
 	}
 	
 	
