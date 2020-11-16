@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * helper class that contains a method to inform the user that EftData has been printed for the sake of this project
+ * class to handle EFT Data for the sake of keeping a record of what each provider must be paid for the week
  * 
  * @author David Dillard
  * @version 1.0
