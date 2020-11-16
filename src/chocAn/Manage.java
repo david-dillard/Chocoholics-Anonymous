@@ -31,15 +31,17 @@ public class Manage {
 		String operation, ret;
 		frame = new JFrame("ChocAn");
 		icon = new ImageIcon("choclate.png");
-		Object[] possibilities = {"Add Member", "Update Member", "Delete Member"};
+		Object[] possibilities = {"Add Member", "Update Member", "Delete Member","Exit"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Member");
 		
-		if (operation == "add"){
+		if (operation == "Add Member"){
 			ret=addMember();
-		}else if (operation == "update"){
+		}else if (operation == "Update Member"){
 			ret=updateMember();
-		}else{
+		}else if(operation=="Delete Member"){
 			ret=deleteMember();
+		}else{
+			ret="Exiting";
 		}
 		JOptionPane.showMessageDialog(frame, ret);
 	}

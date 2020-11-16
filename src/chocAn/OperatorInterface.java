@@ -14,13 +14,18 @@ public class OperatorInterface {
 	private String str;
 	
 	public OperatorInterface(){
+		manage=new Manage();
 		boolean cont = true;
 		while(cont){
 			prompt();
 			if(str=="Manage Member"){
+				System.out.println("Preparing to enter manage member");
+				manage.manageMember();
 				
 			}else if(str=="Manage Provider"){
-				System.out.println("");
+				System.out.println("Preparing to enter manage provider");
+				manage.manageProvider();
+				
 			}else{
 				System.out.println("Breaking from operator interface");
 				cont=false;
