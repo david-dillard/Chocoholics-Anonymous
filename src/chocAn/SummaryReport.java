@@ -36,7 +36,7 @@ public class SummaryReport extends Report{
 			String tempFee = service.getFee();
 			tempFee.replaceAll("$", "");
 			tempFee.replaceAll(",", "");
-			this.totalFee += Double.valueOf(tempFee);
+			this.totalFee += Double.parseDouble(tempFee);
 		}
 	}
 	
