@@ -2,8 +2,7 @@ package chocAn;
 
 
 import java.util.*;
-
-import javax.swing.JOptionPane;
+import java.io.*;
 
 public class MemberReport extends Report {
 	private String name, number, address, city, state, zipCode;
@@ -31,9 +30,16 @@ public class MemberReport extends Report {
 			tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
 			ProviderDirectory providerDirectory = new ProviderDirectory();
 			
-			output += "Date of service:\t" + service.getServiceDate() + "Provider name:\t" + tempProvider.getName() + "Service name:\t" + providerDirectory.getName(service.getServiceCode()); //TODO
+			output += "Date of service:\t" + service.getServiceDate() + "Provider name:\t" + tempProvider.getName() + "Service name:\t" + providerDirectory.getName(service.getServiceCode());
 		}
-		JOptionPane.showMessageDialog(null, output);
+		try {
+			FileWriter memberReport = new FileWriter("MemberReport.txt");
+			memberReport.write(output);
+			memberReport.close();
+		} catch(IOException e) {
+			System.out.println("An error occurred.");
+		    e.printStackTrace();
+		}
 	}
 	
 	
