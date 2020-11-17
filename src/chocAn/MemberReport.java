@@ -12,6 +12,7 @@ import java.util.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class MemberReport extends Report {
 	private String name, number, address, city, state, zipCode;
@@ -36,7 +37,8 @@ public class MemberReport extends Report {
 			List<Service> allServices = tempService.getMemberServices(number);
 			for(Service service : allServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
-				LocalDate serviceDate = LocalDate.parse(service.getServiceDate());
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
 				if(!cutoffDate.isAfter(serviceDate)) {
 					this.services.add(service);	
 				}
