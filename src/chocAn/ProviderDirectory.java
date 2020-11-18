@@ -1,10 +1,41 @@
 package chocAn;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class ProviderDirectory {
-	private String[] serviceCodes = {"111111", "222222", "333333", "444444", "555555"};
-	private String[] serviceNames = {"Eat less chocolate", "Intervention", "Weight loss program", "Exercise program", "Yoga"};
 	
-	public ProviderDirectory() {}
+	private String[] serviceCodes;
+	private String[] serviceNames;
+	private int	position = 0;
+	
+	public ProviderDirectory() {
+		serviceCodes = new String[100];
+		serviceNames = new String[100];
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("ProviderDirectory.csv"));
+			String row = reader.readLine();
+			String[] serviceData = new String[2];
+			while ((row = reader.readLine()) != null) {
+				serviceData = row.split(",");
+				serviceNames[position] = serviceData[0];
+				serviceCodes[position] = serviceData[1];
+				position ++;
+			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: ProviderDirectory.csv not found.");
+		} catch (IOException e) {
+			JFrame frame = new JFrame("ERROR");
+			JOptionPane.showMessageDialog(frame, "Error: Could not read ProviderDirectory.csv.");
+		}
+	}
 	
 	public String[] getServiceCodes() {
 		return serviceCodes;
@@ -16,23 +47,25 @@ public class ProviderDirectory {
 	
 	public String getCode(String name) {
 		int i = 0;
-		while(i < serviceNames.length) {
+		while(serviceNames[i] != null) {
 			if(serviceNames[i] == name) {
 				return serviceCodes[i];
 			}
-			i ++;
 		}
+		JFrame frame = new JFrame("ERROR");
+		JOptionPane.showMessageDialog(frame, "Error: Service name not found.");
 		return null;
 	}
 	
 	public String getName(String code) {
 		int i = 0;
-		while(i < serviceCodes.length) {
+		while(serviceCodes[i] != null) {
 			if(serviceCodes[i] == code) {
 				return serviceNames[i];
 			}
-			i ++;
 		}
+		JFrame frame = new JFrame("ERROR");
+		JOptionPane.showMessageDialog(frame, "Error: Service code not found.");
 		return null;
 	}
 }
