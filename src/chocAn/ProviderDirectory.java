@@ -48,7 +48,7 @@ public class ProviderDirectory {
 	public String getCode(String name) {
 		int i = 0;
 		while(serviceNames[i] != null) {
-			if(serviceNames[i] == name) {
+			if(serviceNames[i].equals(name)) {
 				return serviceCodes[i];
 			}
 		}
@@ -60,7 +60,7 @@ public class ProviderDirectory {
 	public String getName(String code) {
 		int i = 0;
 		while(serviceCodes[i] != null) {
-			if(serviceCodes[i] == code) {
+			if(serviceCodes[i].equals(code)) {
 				return serviceNames[i];
 			}
 		}
