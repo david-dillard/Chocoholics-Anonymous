@@ -54,8 +54,12 @@ public class MemberReport extends Report {
 			Provider tempProvider = new Provider();
 			tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
 			ProviderDirectory providerDirectory = new ProviderDirectory();
+			String serviceName = "Invalid service code";
+			if (providerDirectory.getName(service.getServiceCode()) != null){
+				serviceName = providerDirectory.getName(service.getServiceCode());
+			}
 			
-			output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + providerDirectory.getName(service.getServiceCode()) +"\n";
+			output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + serviceName +"\n";
 		}
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  

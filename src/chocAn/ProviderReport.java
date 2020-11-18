@@ -20,20 +20,8 @@ public class ProviderReport extends Report{
 	/**
 	 * Searches through Provider and adds all necessary information for provider report
 	 * 
-	 * @param number the member's identification number
+	 * @param number the providers's identification number
 	 */
-	public String getName() {
-		return this.name;
-	}
-
-	public String getNumber() {
-		return this.name;
-	}
-
-	public String getWeeklyFee() {
-		return this.weeklyFee;
-	}
-	
 	public ProviderReport(String number) {
 		Provider tempProvider = new Provider();
 		Service tempService = new Service();
@@ -69,15 +57,42 @@ public class ProviderReport extends Report{
 			
 		}	
 	}
+	/**
+	 * Retrieves the provider's name
+	 * 
+	 * @return a String representing the provider's name
+	 */
+	public String getName() {
+		return this.name;
+	}
+	/**
+	 * Retrieves the provider's identification number
+	 * 
+	 * @return a String representing the provider's identification number
+	 */
+	public String getNumber() {
+		return this.number;
+	}
+	/**
+	 * Retrieves the provider's total weekly fee
+	 * 
+	 * @return a String representing the provider's weekly fee
+	 */
+	public String getWeeklyFee() {
+		return this.weeklyFee;
+	}
 	
+	/**
+	 * Writes all data for provider report to separate file 
+	 */
 	public void printReport() {
 		String output = "Provider name:\t" + name + "\nProvider number:\t" + number + "\nProvider street address:\t" + address + "\nProvider City:\t" + city + "\nProvider state:\t" + state + "\nProvider ZIP code\t" + zipCode + "\n";
 		for(Service service: services) {
 			Member tempMember = new Member();
 			tempMember = tempMember.getMemberByNumber(service.getMemberNumber());
-			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were recieved by the computer:\t" + service.getComputerTime() + "\nMember name:\t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t$" + service.getFee() + "\n";
+			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were received by the computer:\t" + service.getComputerTime() + "\nMember name:\t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t" + service.getFee() + "\n";
 		}
-		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:\t" + weeklyFee;
+		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:$\t" + weeklyFee;
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();

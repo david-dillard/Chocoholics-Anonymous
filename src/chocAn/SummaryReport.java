@@ -21,7 +21,11 @@ public class SummaryReport extends Report{
 	private int totalProviders = 0, totalConsultations = 0;
 	private double totalFee = 0;
 	
-	
+	/**
+	 * Gathers all financial information from given services as well as a totaled amount
+	 * 
+	 * @param services all the ChocAn services provided in the last week
+	 */
 	public SummaryReport(List<Service> services) {
 		boolean isUnique = true;
 		totalConsultations = services.size();
@@ -45,7 +49,9 @@ public class SummaryReport extends Report{
 			this.totalFee += Double.parseDouble(tempFee);
 		}
 	}
-	
+	/**
+	 * Writes all data for summary report to separate file 
+	 */
 	public void printReport() {
 		String output = "";
 		for(Provider provider : providers) {
