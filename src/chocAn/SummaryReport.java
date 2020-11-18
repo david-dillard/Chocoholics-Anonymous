@@ -57,6 +57,7 @@ public class SummaryReport extends Report{
 		for(Provider provider : providers) {
 			Service tempService = new Service();
 			List<Service> tempServices = tempService.getProviderServices(provider.getNumber());
+			System.out.println(tempServices);
 			double providerFee = 0;
 			for(Service service : tempServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
