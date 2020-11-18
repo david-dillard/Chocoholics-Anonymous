@@ -387,7 +387,7 @@ public class Manage {
 			}
 			while(true){
 				address=(String)JOptionPane.showInputDialog(frame,"What is the provider's address?\nAddress must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"30 2nd St");
-				if(address=null) return "Leaving";
+				if(address==null) return "Leaving";
 				if(address.length()<=25){
 					break;
 				}
