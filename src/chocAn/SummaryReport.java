@@ -10,6 +10,12 @@ import java.time.*;
 import java.time.format.*;
 import java.time.temporal.TemporalAccessor;
 
+/**
+ * Boundary Class that gathers and outputs information needed for summary reports
+ * 
+ * @author Jacob Pacheco
+ * @version 1.0
+ */
 public class SummaryReport extends Report{
 	private List<Provider> providers = new ArrayList<Provider>();
 	private int totalProviders = 0, totalConsultations = 0;
@@ -44,7 +50,7 @@ public class SummaryReport extends Report{
 		String output = "";
 		for(Provider provider : providers) {
 			Service tempService = new Service();
-			List<Service> tempServices = tempService.getProviderServices("");
+			List<Service> tempServices = tempService.getProviderServices(tempService.getProviderNumber());
 			double providerFee = 0;
 			for(Service service : tempServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
@@ -63,7 +69,7 @@ public class SummaryReport extends Report{
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();
-			FileWriter summaryReport = new FileWriter("Summary" +formatter.format(date) + ".txt");
+			FileWriter summaryReport = new FileWriter("Summary" + formatter.format(date) + ".txt");
 			summaryReport.write(output);
 			summaryReport.close();
 		} catch(IOException e) {
