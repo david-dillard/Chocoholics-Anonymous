@@ -48,11 +48,12 @@ public class SummaryReport extends Report{
 			double providerFee = 0;
 			for(Service service : tempServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
-				LocalDate serviceDate = LocalDate.parse(service.getServiceDate());
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
 				if(!cutoffDate.isAfter(serviceDate)) {
 					String serviceFee = service.getFee();
-					serviceFee.replaceAll("$", "");
-					serviceFee.replaceAll(",", "");
+					serviceFee = serviceFee.replace("$", "");
+					serviceFee = serviceFee.replace(",", "");
 					providerFee += Double.parseDouble(serviceFee);
 				}
 			}

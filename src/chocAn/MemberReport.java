@@ -37,7 +37,7 @@ public class MemberReport extends Report {
 			List<Service> allServices = tempService.getMemberServices(number);
 			for(Service service : allServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
 				if(!cutoffDate.isAfter(serviceDate)) {
 					this.services.add(service);	
