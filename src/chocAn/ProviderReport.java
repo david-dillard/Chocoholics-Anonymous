@@ -53,7 +53,7 @@ public class ProviderReport extends Report{
 			}
 			if(totalFee > 99999.99)
 				totalFee = 99999.99;
-			this.weeklyFee = String.format("%.2g%n",totalFee);
+			this.weeklyFee = String.format("%.2f%n",totalFee);
 			
 		}	
 	}

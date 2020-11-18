@@ -57,7 +57,7 @@ public class SummaryReport extends Report{
 		for(Provider provider : providers) {
 			Service tempService = new Service();
 			List<Service> tempServices = tempService.getProviderServices(provider.getNumber());
-			System.out.println(tempServices);
+			
 			double providerFee = 0;
 			for(Service service : tempServices) {
 				LocalDate cutoffDate = LocalDate.now().minusDays(7);
@@ -70,9 +70,9 @@ public class SummaryReport extends Report{
 					providerFee += Double.parseDouble(serviceFee);
 				}
 			}
-			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2g%n",providerFee) + "\n";	
+			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2f%n",providerFee) + "\n";	
 		}
-		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2g%n",totalFee);
+		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2f%n",totalFee);
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();
