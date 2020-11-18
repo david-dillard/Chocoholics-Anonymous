@@ -31,7 +31,7 @@ public class Manage {
 		String operation, ret;
 		frame = new JFrame("ChocAn");
 		icon = new ImageIcon("choclate.png");
-		Object[] possibilities = {"Add Member", "Update Member", "Delete Member","Exit"};
+		Object[] possibilities = {"Add Member", "Update Member", "Delete Member"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Member");
 		
 		if (operation == "Add Member"){
@@ -238,7 +238,7 @@ public class Manage {
 		String operation, ret;
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
-		Object[] possibilities = {"Add Provider", "Update Provider", "Delete Provider","Exit"};
+		Object[] possibilities = {"Add Provider", "Update Provider", "Delete Provider"};
 		//Object[] possibilities2 = {"Card","Number"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Provider",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Provider");
 		

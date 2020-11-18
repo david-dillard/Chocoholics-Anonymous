@@ -43,7 +43,7 @@ public class OperatorInterface {
 	public void prompt(){
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
-		Object[] possibilities = {"Manage Member","Manage Provider", "Exit"};
+		Object[] possibilities = {"Manage Member","Manage Provider"};
 		str = (String)JOptionPane.showInputDialog(frame, "What would you like to manage?","ChocAn Operator Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Manage Member");
 	}
 }

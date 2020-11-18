@@ -39,6 +39,11 @@ public class Interface {
 				manager=new ManagerInterface();
 				manager.prompt();
 				
+			}else if(str=="Run Accounting Procedure"){
+				System.out.println("Preparing to run the accounting procedure");
+				GenerateReports gen = new GenerateReports();
+				gen.runAccountingProcedure();
+				
 			}else{
 				System.out.println("Breaking from loop");
 				cont=false;
@@ -53,7 +58,7 @@ public class Interface {
 		String operation;
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
-		Object[] possibilities = {"Operator Interface", "Provider Interface", "Manager Interface","Exit"};
+		Object[] possibilities = {"Operator Interface", "Provider Interface", "Manager Interface","Run Accounting Procedure"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which interface would you like to access?","ChocAn Terminal Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Operator Interface");
 		System.out.print(operation);
 		str=operation;
