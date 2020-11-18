@@ -34,8 +34,8 @@ public class SummaryReport extends Report{
 			}
 			isUnique = true;
 			String tempFee = service.getFee();
-			tempFee.replaceAll("$", "");
-			tempFee.replaceAll(",", "");
+			tempFee = tempFee.replace("$", "");
+			tempFee = tempFee.replace(",", "");
 			this.totalFee += Double.parseDouble(tempFee);
 		}
 	}

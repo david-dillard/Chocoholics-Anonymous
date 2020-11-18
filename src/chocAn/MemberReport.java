@@ -3,17 +3,17 @@ package chocAn;
 
 import java.util.*;
 
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Boundary Class that gathers and outputs information needed for member reports
  * 
  * @author Jacob Pacheco
  * @version 1.0
  */
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class MemberReport extends Report {
 	private String name, number, address, city, state, zipCode;
 	private List<Service> services = new ArrayList<Service>();

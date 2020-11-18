@@ -7,11 +7,21 @@ import java.time.LocalDate;
 import java.util.*;
 import java.time.format.*;
 
+/**
+ * Boundary Class that gathers and outputs information needed for provider reports
+ * 
+ * @author Jacob Pacheco
+ * @version 1.0
+ */
 public class ProviderReport extends Report{
 	private String name, number, address, city, state, zipCode, consulatations, weeklyFee;
 	private List<Service> services = new ArrayList<Service>();
 	
-	
+	/**
+	 * Searches through Provider and adds all necessary information for provider report
+	 * 
+	 * @param number the member's identification number
+	 */
 	public String getName() {
 		return this.name;
 	}
