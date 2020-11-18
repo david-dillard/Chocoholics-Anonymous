@@ -23,7 +23,8 @@ public class ProviderInterface {
 		if(s == "Verify Member Card") {
 			String a = (String)JOptionPane.showInputDialog(frame, "Member Card or Member Number?", "Member Validation", JOptionPane.PLAIN_MESSAGE, icon, possibilities2, "Card");
 			if(a == "Card") {
-				boolean valid = billing.verifyMemberCard();
+				String n = (String)JOptionPane.showInputDialog(frame, "Enter member number from member card.", "Member Card", JOptionPane.PLAIN_MESSAGE, icon, null, "");
+				boolean valid = billing.verifyMemberCard(n);
 				if(valid = true) {
 					JOptionPane.showMessageDialog(frame, "VALIDATED");
 				} else {
