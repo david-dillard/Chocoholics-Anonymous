@@ -58,30 +58,35 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			name=(String)JOptionPane.showInputDialog(frame,"What is the member's name?\nName must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"John");
+			if(name==null) return "Leaving";
 			if(name.length()<=25){
 				break;
 			}
 		}
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the member's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
 		}
 		while(true){
 			address=(String)JOptionPane.showInputDialog(frame,"What is the member's address?\nAddress must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"30 2nd St");
+			if(address==null) return "Leaving";
 			if(address.length()<=25){
 				break;
 			}
 		}
 		while(true){
 			city=(String)JOptionPane.showInputDialog(frame,"What is the member's place of residence?\nCity name must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"Gotham");
+			if(city==null) return "Leaving";
 			if(city.length()<=14){
 				break;
 			}
 		}
 		while(true){
 			state=(String)JOptionPane.showInputDialog(frame,"What is the member's state of residence?\nState must use the 2 letter abbreviation","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"IN");
+			if(state==null) return "Leaving";
 			if(state.length()==2){
 				char first, second;
 				first=state.charAt(0);
@@ -93,6 +98,7 @@ public class Manage {
 		}
 		while(true){
 			zipCode=(String)JOptionPane.showInputDialog(frame,"What is the member's zipCode??\nZipCode must contain 5 integers","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"37188");
+			if(zipCode==null) return "Leaving";
 			if(zipCode.length()==5){
 				break;
 			}
@@ -100,6 +106,7 @@ public class Manage {
 		
 		Object[] possibilites = {"Active","Nonactive"};
 		status = (String)JOptionPane.showInputDialog(frame, "What is the member's status?","Add Member",JOptionPane.PLAIN_MESSAGE, icon, possibilites ,"Active");
+		if(status==null) return "Leaving";
 		
 		Member temp = new Member();
 		Member poss = temp.getMemberByNumber(number);
@@ -132,6 +139,7 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the member's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
@@ -147,30 +155,35 @@ public class Manage {
 			//dialogue box to add new information
 			while(true){
 				name=(String)JOptionPane.showInputDialog(frame,"What is the member's name?\nName must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"John");
+				if(name==null) return "Leaving";
 				if(name.length()<=25){
 					break;
 				}
 			}
 			while(true){
 				number=(String)JOptionPane.showInputDialog(frame,"What is the member's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+				if(number==null) return "Leaving";
 				if(number.length()==9){
 					break;
 				}
 			}
 			while(true){
 				address=(String)JOptionPane.showInputDialog(frame,"What is the member's address?\nAddress must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"30 2nd St");
+				if(address==null) return "Leaving";
 				if(address.length()<=25){
 					break;
 				}
 			}
 			while(true){
 				city=(String)JOptionPane.showInputDialog(frame,"What is the member's place of residence?\nCity name must be under 26 characters","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"Gotham");
+				if(city==null) return "Leaving";
 				if(city.length()<=14){
 					break;
 				}
 			}
 			while(true){
 				state=(String)JOptionPane.showInputDialog(frame,"What is the member's state of residence?\nState must use the 2 letter abbreviation","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"IN");
+				if(state==null) return "Leaving";
 				if(state.length()==2){
 					char first, second;
 					first=state.charAt(0);
@@ -182,6 +195,7 @@ public class Manage {
 			}
 			while(true){
 				zipCode=(String)JOptionPane.showInputDialog(frame,"What is the member's zipCode??\nZipCode must contain 5 integers","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"37188");
+				if(zipCode==null) return "Leaving";
 				if(zipCode.length()==5){
 					break;
 				}
@@ -189,6 +203,7 @@ public class Manage {
 			
 			Object[] possibilites = {"Active","Nonactive"};
 			status = (String)JOptionPane.showInputDialog(frame, "What is the member's status?","Add Member",JOptionPane.PLAIN_MESSAGE, icon, possibilites ,"Active");
+			if(status==null) return "Leaving";
 			
 			curr.setName(name);
 			curr.setNumber(number);
@@ -214,6 +229,7 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the member's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Member",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
@@ -266,30 +282,35 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			name=(String)JOptionPane.showInputDialog(frame,"What is the provider's name?\nName must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"CocoINC");
+			if(name==null) return "Leaving";
 			if(name.length()<=25){
 				break;
 			}
 		}
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the provider's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
 		}
 		while(true){
 			address=(String)JOptionPane.showInputDialog(frame,"What is the provider's address?\nAddress must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"30 2nd St");
+			if(address==null) return "Leaving";
 			if(address.length()<=25){
 				break;
 			}
 		}
 		while(true){
 			city=(String)JOptionPane.showInputDialog(frame,"What is the provider's place of residence?\nCity name must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"Gotham");
+			if(city==null) return "Leaving";
 			if(city.length()<=14){
 				break;
 			}
 		}
 		while(true){
 			state=(String)JOptionPane.showInputDialog(frame,"What is the provider's state of residence?\nState must use the 2 letter abbreviation","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"IN");
+			if(state==null) return "Leaving";
 			if(state.length()==2){
 				char first, second;
 				first=state.charAt(0);
@@ -301,6 +322,7 @@ public class Manage {
 		}
 		while(true){
 			zipCode=(String)JOptionPane.showInputDialog(frame,"What is the provider's zipCode??\nZipCode must contain 5 integers","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"37188");
+			if(zipCode==null) return "Leaving";
 			if(zipCode.length()==5){
 				break;
 			}
@@ -336,6 +358,7 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the provider's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
@@ -350,30 +373,35 @@ public class Manage {
 			String oldnum=poss.getNumber();
 			while(true){
 				name=(String)JOptionPane.showInputDialog(frame,"What is the provider's name?\nName must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"CocoINC");
+				if(name==null) return "Leaving";
 				if(name.length()<=25){
 					break;
 				}
 			}
 			while(true){
 				number=(String)JOptionPane.showInputDialog(frame,"What is the provider's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+				if(number==null) return "Leaving";
 				if(number.length()==9){
 					break;
 				}
 			}
 			while(true){
 				address=(String)JOptionPane.showInputDialog(frame,"What is the provider's address?\nAddress must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"30 2nd St");
+				if(address=null) return "Leaving";
 				if(address.length()<=25){
 					break;
 				}
 			}
 			while(true){
 				city=(String)JOptionPane.showInputDialog(frame,"What is the provider's place of residence?\nCity name must be under 26 characters","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"Gotham");
+				if(city==null) return "Leaving";
 				if(city.length()<=14){
 					break;
 				}
 			}
 			while(true){
 				state=(String)JOptionPane.showInputDialog(frame,"What is the provider's state of residence?\nState must use the 2 letter abbreviation","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"IN");
+				if(state==null) return "Leaving";
 				if(state.length()==2){
 					char first, second;
 					first=state.charAt(0);
@@ -385,6 +413,7 @@ public class Manage {
 			}
 			while(true){
 				zipCode=(String)JOptionPane.showInputDialog(frame,"What is the provider's zipCode??\nZipCode must contain 5 integers","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"37188");
+				if(zipCode==null) return "Leaving";
 				if(zipCode.length()==5){
 					break;
 				}
@@ -412,6 +441,7 @@ public class Manage {
 		//dialogue box required to get info
 		while(true){
 			number=(String)JOptionPane.showInputDialog(frame,"What is the provider's number?\nNumber must be 9 integers\nInclude leading zeros as needed","Add Provider",JOptionPane.PLAIN_MESSAGE,icon,null,"123456789");
+			if(number==null) return "Leaving";
 			if(number.length()==9){
 				break;
 			}
