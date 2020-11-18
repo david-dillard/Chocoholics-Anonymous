@@ -16,7 +16,7 @@ public class ProviderInterface {
 	
 	public void prompt() {
 		boolean flag = true;
-		while(flag = true) {
+		while(flag == true) {
 			JFrame frame = new JFrame("Provider Interface");
 			ImageIcon icon = new ImageIcon("duck.jpg");
 			Object[] possibilities = {"Verify Member Card", "Bill ChocAn", "Request Provider Directory"};
