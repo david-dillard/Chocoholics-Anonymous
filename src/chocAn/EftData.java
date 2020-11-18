@@ -32,7 +32,7 @@ public class EftData extends Report{
 	 */
 	public void printReport() {
 		try {
-			FileWriter eftFile = new FileWriter(providerName + "EFT Data");
+			FileWriter eftFile = new FileWriter(providerName + " EFT Data.txt");
 			eftFile.append(providerName + "\n");
 			eftFile.append(providerNumber + "\n");
 			eftFile.append(amount + "\n");

@@ -1,5 +1,7 @@
 package chocAn;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -88,14 +90,24 @@ public class ManagerInterface {
 	public SummaryReport requestSummaryReport() {
 		
 		GenerateReports generateReport = new GenerateReports();
-		
+		LocalDate cutoffDate = LocalDate.now().minusDays(7);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 		Provider grandProvider = new Provider();
 		List<Provider> providers = grandProvider.getProvidersFromDatabase();
 		Service grandService = new Service();
 		List<Service> weekServices = new ArrayList<Service>();
 		for(Provider provider: providers) {
+			List<Service> providerServices = new ArrayList<Service>();
 			String number = provider.getNumber();
-			weekServices.addAll(grandService.getProviderServices(number));
+			providerServices.addAll(grandService.getProviderServices(number));
+			
+			for (Service service: providerServices) {
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
+				if(!cutoffDate.isAfter(serviceDate)) {
+					weekServices.add(service);
+				}
+			}
+			
 		}
 		SummaryReport summaryReport = generateReport.generateSummaryReport(weekServices);
 		summaryReport.printReport();

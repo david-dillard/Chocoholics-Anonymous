@@ -1,7 +1,9 @@
 package chocAn;
 import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
+import java.time.*;
 
 
 /**
@@ -73,12 +75,21 @@ public class GenerateReports {
 			eftData.printReport();
 		}
 		
-	
+		LocalDate cutoffDate = LocalDate.now().minusDays(7);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 		Service grandService = new Service();
 		List<Service> weekServices = new ArrayList<Service>();
 		for(Provider provider: providers) {
+			List<Service> providerServices = new ArrayList<Service>();
 			String number = provider.getNumber();
-			weekServices.addAll(grandService.getProviderServices(number));
+			providerServices.addAll(grandService.getProviderServices(number));
+			
+			for (Service service: providerServices) {
+				LocalDate serviceDate = LocalDate.parse(service.getServiceDate(), formatter);
+				if(!cutoffDate.isAfter(serviceDate)) {
+					weekServices.add(service);
+				}
+			}
 		}
 		SummaryReport summaryReport = generateSummaryReport(weekServices);
 		summaryReport.printReport();
