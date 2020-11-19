@@ -11,7 +11,7 @@ import chocAn.Provider;
  * @author David Dillard
  * @version 1.0
  */
-public class ProviderTest {
+public class TestProvider {
 
 	/**
 	 * Tests searchProviderNumber for returning true
@@ -74,7 +74,8 @@ public class ProviderTest {
 		testProvider.setState("AL");
 		testProvider.setZipCode("00000");
 		testProvider.addProviderToDatabase();
-		assertFalse(testProvider.getProviderByNumber("DoNoExist") == testProvider);
+		assertNull(testProvider.getProviderByNumber("DoNoExist"));
+		testProvider.deleteProviderFromDatabase();
 	}
 
 }
