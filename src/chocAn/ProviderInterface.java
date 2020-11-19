@@ -1,19 +1,29 @@
 package chocAn;
 import javax.swing.*;
-import java.awt.event.*;
-import java.util.*;
+
+/**
+ * This class is the interface providers will interact with.
+ * @author Joseph Daly
+ * @version 1.0
+ */
 
 public class ProviderInterface {
 	private BillingVerify billing;
 	private RequestProviderDirectory request;
 	private ProviderDirectory directory;
 	
+	/**
+	 * This is the constructor that assigns values to each of the 3 fields.
+	 */
 	public ProviderInterface() {
 		billing = new BillingVerify();
 		request = new RequestProviderDirectory();
 		directory = new ProviderDirectory();
 	}
 	
+	/**
+	 * This method prompts the provider to perform one of 3 actions through a dialogue box.
+	 */
 	public void prompt() {
 		boolean flag = true;
 		while(flag == true) {
