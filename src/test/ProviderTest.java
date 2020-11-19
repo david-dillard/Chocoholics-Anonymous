@@ -5,6 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import chocAn.Provider;
 
+/**
+ * Partially tests the provider class and some of its methods
+ * 
+ * @author David Dillard
+ * @version 1.0
+ */
 public class ProviderTest {
 
 	/**
