@@ -52,7 +52,12 @@ public class ProviderTest {
 		testProvider.setState("AL");
 		testProvider.setZipCode("00000");
 		testProvider.addProviderToDatabase();
-		assertTrue(testProvider == testProvider.getProviderByNumber("randomnum"));
+		assertEquals(testProvider.getName(), testProvider.getProviderByNumber("randomnum").getName());
+		assertEquals(testProvider.getNumber(), testProvider.getProviderByNumber("randomnum").getNumber());
+		assertEquals(testProvider.getAddress(), testProvider.getProviderByNumber("randomnum").getAddress());
+		assertEquals(testProvider.getCity(), testProvider.getProviderByNumber("randomnum").getCity());
+		assertEquals(testProvider.getState(), testProvider.getProviderByNumber("randomnum").getState());
+		assertEquals(testProvider.getZipCode(), testProvider.getProviderByNumber("randomnum").getZipCode());
 		testProvider.deleteProviderFromDatabase();
 	}
 
