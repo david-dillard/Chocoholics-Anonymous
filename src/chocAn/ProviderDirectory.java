@@ -72,6 +72,7 @@ public class ProviderDirectory {
 			if(serviceNames[i].equals(name)) {
 				return serviceCodes[i];
 			}
+			i++;
 		}
 		JFrame frame = new JFrame("ERROR");
 		JOptionPane.showMessageDialog(frame, "Error: Service name not found.");
@@ -89,6 +90,7 @@ public class ProviderDirectory {
 			if(serviceCodes[i].equals(code)) {
 				return serviceNames[i];
 			}
+			i++;
 		}
 		JFrame frame = new JFrame("ERROR");
 		JOptionPane.showMessageDialog(frame, "Error: Service code not found.");
