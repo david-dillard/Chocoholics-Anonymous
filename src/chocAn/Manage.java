@@ -104,7 +104,7 @@ public class Manage {
 			}
 		}
 		
-		Object[] possibilites = {"Active","Nonactive"};
+		Object[] possibilites = {"active","suspended"};
 		status = (String)JOptionPane.showInputDialog(frame, "What is the member's status?","Add Member",JOptionPane.PLAIN_MESSAGE, icon, possibilites ,"Active");
 		if(status==null) return "Leaving";
 		
@@ -201,7 +201,7 @@ public class Manage {
 				}
 			}
 			
-			Object[] possibilites = {"Active","Nonactive"};
+			Object[] possibilites = {"active","suspended"};
 			status = (String)JOptionPane.showInputDialog(frame, "What is the member's status?","Add Member",JOptionPane.PLAIN_MESSAGE, icon, possibilites ,"Active");
 			if(status==null) return "Leaving";
 			
