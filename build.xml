@@ -17,11 +17,27 @@
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
+    <path id="run.Interface.classpath">
+        <path refid="fall2020team8.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
     <path id="run.TestBillingVerify.classpath">
         <path refid="fall2020team8.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
-    <path id="run.Interface.classpath">
+    <path id="run.TestMember.classpath">
+        <path refid="fall2020team8.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <path id="run.TestProvider.classpath">
+        <path refid="fall2020team8.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <path id="run.TestProviderDirectory.classpath">
+        <path refid="fall2020team8.classpath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <path id="run.TestService.classpath">
         <path refid="fall2020team8.classpath"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
@@ -61,6 +77,19 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="createJar">
+    	<jar destfile="release/chocAn.jar">
+    		<fileset dir="bin/" includes="**/*.class"></fileset>
+    		<manifest>
+    			<attribute name="Main-Class" value="chocAn.Interface"/>
+    		</manifest>
+    	</jar>
+    </target>
+    <target name="Interface">
+        <java classname="chocAn.Interface" failonerror="true" fork="yes">
+            <classpath refid="run.Interface.classpath"/>
+        </java>
+    </target>
     <target name="TestBillingVerify">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -70,10 +99,41 @@
             <classpath refid="run.TestBillingVerify.classpath"/>
         </junit>
     </target>
-    <target name="Interface">
-        <java classname="chocAn.Interface" failonerror="true" fork="yes">
-            <classpath refid="run.Interface.classpath"/>
-        </java>
+    <target name="TestMember">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestMember" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestMember.classpath"/>
+        </junit>
+    </target>
+    <target name="TestProvider">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestProvider" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestProvider.classpath"/>
+        </junit>
+    </target>
+    <target name="TestProviderDirectory">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestProviderDirectory" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestProviderDirectory.classpath"/>
+        </junit>
+    </target>
+    <target name="TestService">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.TestService" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.TestService.classpath"/>
+        </junit>
     </target>
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">
