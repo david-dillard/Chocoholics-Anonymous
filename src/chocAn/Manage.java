@@ -34,11 +34,11 @@ public class Manage {
 		Object[] possibilities = {"Add Member", "Update Member", "Delete Member"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Member");
 		
-		if (operation == "Add Member"){
+		if (operation.equals("Add Member")){
 			ret=addMember();
-		}else if (operation == "Update Member"){
+		}else if (operation.equals("Update Member")){
 			ret=updateMember();
-		}else if(operation=="Delete Member"){
+		}else if(operation.equals("Delete Member")){
 			ret=deleteMember();
 		}else{
 			ret="Exiting";
@@ -258,11 +258,11 @@ public class Manage {
 		//Object[] possibilities2 = {"Card","Number"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Provider",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Provider");
 		
-		if (operation == "Add Provider"){
+		if (operation.equals("Add Provider")){
 			ret=addProvider();
-		}else if (operation == "Update Provider"){
+		}else if (operation.equals("Update Provider")){
 			ret=updateProvider();
-		}else if(operation=="Delete Provider"){
+		}else if(operation.equals("Delete Provider")){
 			ret=deleteProvider();
 		}else{
 			ret="Exiting manage provider";

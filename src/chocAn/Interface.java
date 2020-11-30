@@ -24,22 +24,22 @@ public class Interface {
 		boolean cont=true;
 		while(cont){
 			prompt();
-			if(str=="Operator Interface"){
+			if(str.equals("Operator Interface")){
 				System.out.println("Preparing the operator interface");
 				operator=new OperatorInterface();
 				operator.prompt();
 				
-			}else if(str=="Provider Interface"){
+			}else if(str.equals("Provider Interface")){
 				System.out.println("Preparing the provider interface");
 				provider=new ProviderInterface();
 				provider.prompt();
 				
-			}else if(str=="Manager Interface"){
+			}else if(str.equals("Manager Interface")){
 				System.out.println("Preparing the manager interface");
 				manager=new ManagerInterface();
 				manager.prompt();
 				
-			}else if(str=="Run Accounting Procedure"){
+			}else if(str.equals("Run Accounting Procedure")){
 				System.out.println("Preparing to run the accounting procedure");
 				GenerateReports gen = new GenerateReports();
 				gen.runAccountingProcedure();

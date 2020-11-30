@@ -22,11 +22,11 @@ public class OperatorInterface {
 		boolean cont = true;
 		while(cont){
 			prompt();
-			if(str=="Manage Member"){
+			if(str.equals("Manage Member")){
 				System.out.println("Preparing to enter manage member");
 				manage.manageMember();
 				
-			}else if(str=="Manage Provider"){
+			}else if(str.equals("Manage Provider")){
 				System.out.println("Preparing to enter manage provider");
 				manage.manageProvider();
 				
