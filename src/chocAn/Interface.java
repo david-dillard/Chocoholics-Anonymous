@@ -24,7 +24,10 @@ public class Interface {
 		boolean cont=true;
 		while(cont){
 			prompt();
-			if(str.equals("Operator Interface")){
+			if (str == null){
+				cont=false;
+				
+			}else if(str.equals("Operator Interface")){
 				//System.out.println("Preparing the operator interface");
 				operator=new OperatorInterface();
 				operator.prompt();
@@ -43,10 +46,6 @@ public class Interface {
 				//System.out.println("Preparing to run the accounting procedure");
 				GenerateReports gen = new GenerateReports();
 				gen.runAccountingProcedure();
-				
-			}else{
-				//System.out.println("Breaking from loop");
-				cont=false;
 			}
 		}
 	}

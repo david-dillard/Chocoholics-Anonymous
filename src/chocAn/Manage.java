@@ -28,20 +28,21 @@ public class Manage {
 	 * This method handles add, update, and delete member
 	 */
 	public void manageMember(){
-		String operation, ret;
+		String operation;
+		String ret="ChocAn";
 		frame = new JFrame("ChocAn");
 		icon = new ImageIcon("choclate.png");
 		Object[] possibilities = {"Add Member", "Update Member", "Delete Member"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Member",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Member");
 		
-		if (operation.equals("Add Member")){
+		if (operation == null){
+			ret="Exiting";
+		}else if (operation.equals("Add Member")){
 			ret=addMember();
 		}else if (operation.equals("Update Member")){
 			ret=updateMember();
 		}else if(operation.equals("Delete Member")){
 			ret=deleteMember();
-		}else{
-			ret="Exiting";
 		}
 		JOptionPane.showMessageDialog(frame, ret);
 	}
@@ -251,21 +252,22 @@ public class Manage {
 	 * It takes user input and then directs them to the correct method
 	 */
 	public void manageProvider(){
-		String operation, ret;
+		String operation;
+		String ret="ChocAn";
 		JFrame frame = new JFrame("ChocAn");
 		ImageIcon icon = new ImageIcon("choclate.png");
 		Object[] possibilities = {"Add Provider", "Update Provider", "Delete Provider"};
 		//Object[] possibilities2 = {"Card","Number"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which operation would you like to perform?","Manage Provider",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Add Provider");
 		
-		if (operation.equals("Add Provider")){
+		if (operation == null){
+			ret="Exiting";
+		}else if (operation.equals("Add Provider")){
 			ret=addProvider();
 		}else if (operation.equals("Update Provider")){
 			ret=updateProvider();
 		}else if(operation.equals("Delete Provider")){
 			ret=deleteProvider();
-		}else{
-			ret="Exiting manage provider";
 		}
 		JOptionPane.showMessageDialog(frame, ret);
 	}

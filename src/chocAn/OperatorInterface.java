@@ -22,7 +22,10 @@ public class OperatorInterface {
 		boolean cont = true;
 		while(cont){
 			prompt();
-			if(str.equals("Manage Member")){
+			if(str == null){
+				cont=false;
+				
+			}else if(str.equals("Manage Member")){
 				//System.out.println("Preparing to enter manage member");
 				manage.manageMember();
 				
@@ -30,9 +33,6 @@ public class OperatorInterface {
 				//System.out.println("Preparing to enter manage provider");
 				manage.manageProvider();
 				
-			}else{
-				//System.out.println("Breaking from operator interface");
-				cont=false;
 			}
 		}
 	}
