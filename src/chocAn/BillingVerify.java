@@ -50,7 +50,7 @@ public class BillingVerify {
 		while(true) {
 			fee = (String)JOptionPane.showInputDialog(frame, "Enter the fee, include $ at the beginning.\nInclude cents, even if price is a whole dollar amount.", "fee", JOptionPane.PLAIN_MESSAGE, icon, null, "");
 			if(fee == null) return;
-			if(fee.length() <= 6) break;
+			if(fee.length() <= 7) break;
 		}
 		Service service = new Service();
         LocalDateTime time = LocalDateTime.now();
@@ -62,6 +62,7 @@ public class BillingVerify {
         service.setServiceCode(serviceCode);
         service.setComments(comments);
         service.setFee(fee);
+        service.addToDatabase();
 	}
 	
 	/**
