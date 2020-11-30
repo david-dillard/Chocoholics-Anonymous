@@ -30,7 +30,6 @@ public class Interface {
 			}else if(str.equals("Operator Interface")){
 				//System.out.println("Preparing the operator interface");
 				operator=new OperatorInterface();
-				operator.prompt();
 				
 			}else if(str.equals("Provider Interface")){
 				//System.out.println("Preparing the provider interface");
