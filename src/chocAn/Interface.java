@@ -18,7 +18,7 @@ public class Interface {
 	
 	/**
 	 * This is the main code of the program. It begins by asking a user which terminal is to be accessed
-	 * @param args
+	 * @param args - accepts arguments when running the program
 	 */
 	public static void main(String[] args){
 		boolean cont=true;
