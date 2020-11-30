@@ -81,8 +81,8 @@
         <java classname="chocAn.Interface" failonerror="true" fork="yes">
             <classpath refid="run.Interface.classpath"/>
         </java>
-    </target>
-  	<target name="createJar">
+    </target>  	
+    <target name="createJar">
   	    <jar destfile="release/chocAn.jar">
   	    	<fileset dir="bin/" includes="**/*.class"></fileset>
   	    	<manifest>
