@@ -77,19 +77,19 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="createJar">
-    	<jar destfile="release/chocAn.jar">
-    		<fileset dir="bin/" includes="**/*.class"></fileset>
-    		<manifest>
-    			<attribute name="Main-Class" value="chocAn.Interface"/>
-    		</manifest>
-    	</jar>
-    </target>
     <target name="Interface">
         <java classname="chocAn.Interface" failonerror="true" fork="yes">
             <classpath refid="run.Interface.classpath"/>
         </java>
     </target>
+  	<target name="createJar">
+  	    <jar destfile="release/chocAn.jar">
+  	    	<fileset dir="bin/" includes="**/*.class"></fileset>
+  	    	<manifest>
+  	    		<attribute name="Main-Class" value="chocAn.Interface"/>
+  	    	</manifest>
+  	    </jar>
+  	</target>
     <target name="TestBillingVerify">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
