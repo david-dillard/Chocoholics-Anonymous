@@ -25,27 +25,27 @@ public class Interface {
 		while(cont){
 			prompt();
 			if(str.equals("Operator Interface")){
-				System.out.println("Preparing the operator interface");
+				//System.out.println("Preparing the operator interface");
 				operator=new OperatorInterface();
 				operator.prompt();
 				
 			}else if(str.equals("Provider Interface")){
-				System.out.println("Preparing the provider interface");
+				//System.out.println("Preparing the provider interface");
 				provider=new ProviderInterface();
 				provider.prompt();
 				
 			}else if(str.equals("Manager Interface")){
-				System.out.println("Preparing the manager interface");
+				//System.out.println("Preparing the manager interface");
 				manager=new ManagerInterface();
 				manager.prompt();
 				
 			}else if(str.equals("Run Accounting Procedure")){
-				System.out.println("Preparing to run the accounting procedure");
+				//System.out.println("Preparing to run the accounting procedure");
 				GenerateReports gen = new GenerateReports();
 				gen.runAccountingProcedure();
 				
 			}else{
-				System.out.println("Breaking from loop");
+				//System.out.println("Breaking from loop");
 				cont=false;
 			}
 		}
@@ -60,7 +60,7 @@ public class Interface {
 		ImageIcon icon = new ImageIcon("choclate.png");
 		Object[] possibilities = {"Operator Interface", "Provider Interface", "Manager Interface","Run Accounting Procedure"};
 		operation = (String)JOptionPane.showInputDialog(frame, "Which interface would you like to access?","ChocAn Terminal Interface",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "Operator Interface");
-		System.out.print(operation);
+		//System.out.print(operation);
 		str=operation;
 	}
 }

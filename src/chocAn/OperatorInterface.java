@@ -23,15 +23,15 @@ public class OperatorInterface {
 		while(cont){
 			prompt();
 			if(str.equals("Manage Member")){
-				System.out.println("Preparing to enter manage member");
+				//System.out.println("Preparing to enter manage member");
 				manage.manageMember();
 				
 			}else if(str.equals("Manage Provider")){
-				System.out.println("Preparing to enter manage provider");
+				//System.out.println("Preparing to enter manage provider");
 				manage.manageProvider();
 				
 			}else{
-				System.out.println("Breaking from operator interface");
+				//System.out.println("Breaking from operator interface");
 				cont=false;
 			}
 		}

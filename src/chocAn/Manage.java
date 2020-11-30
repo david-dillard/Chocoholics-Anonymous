@@ -53,7 +53,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String addMember(){
-		System.out.println("In addMember()");
+		//System.out.println("In addMember()");
 		String name, number, address, city, state, zipCode, status;
 		//dialogue box required to get info
 		while(true){
@@ -134,7 +134,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String updateMember(){
-		System.out.println("In updateMember()");
+		//System.out.println("In updateMember()");
 		String name, number, address, city, state, zipCode, status;
 		//dialogue box required to get info
 		while(true){
@@ -224,7 +224,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String deleteMember(){
-		System.out.println("In deleteMember()");
+		//System.out.println("In deleteMember()");
 		String number;
 		//dialogue box required to get info
 		while(true){
@@ -277,7 +277,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String addProvider(){
-		System.out.println("In addProvider()");
+		//System.out.println("In addProvider()");
 		String name, number, address, city, state, zipCode;
 		//dialogue box required to get info
 		while(true){
@@ -353,7 +353,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String updateProvider(){
-		System.out.println("In updateProvider()");
+		//System.out.println("In updateProvider()");
 		String name, number, address, city, state, zipCode;
 		//dialogue box required to get info
 		while(true){
@@ -436,7 +436,7 @@ public class Manage {
 	 * @return String - a message that indicates if the method was successful
 	 */
 	public String deleteProvider(){
-		System.out.println("In deleteProvider()");
+		//System.out.println("In deleteProvider()");
 		String number;
 		//dialogue box required to get info
 		while(true){
