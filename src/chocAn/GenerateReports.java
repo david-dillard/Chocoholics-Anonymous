@@ -45,9 +45,10 @@ public class GenerateReports {
 	}
 	
 	/**
-	 * constructs and returns an EftData
-	 * @return fully populated EftData
-	 */
+     * constructs and returns an EftData file
+     * @param providerReport a populated Provider Report so that the method can get provider details
+     * @return fully populated EftData
+     */
 	public EftData writeEftData(ProviderReport providerReport) {
 		EftData eftData = new EftData(providerReport.getName(), providerReport.getNumber(), providerReport.getWeeklyFee());
 		return eftData;
