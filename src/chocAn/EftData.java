@@ -33,9 +33,9 @@ public class EftData extends Report{
 	public void printReport() {
 		try {
 			FileWriter eftFile = new FileWriter(providerName + " EFT Data.txt");
-			eftFile.append(providerName + "\n");
-			eftFile.append(providerNumber + "\n");
-			eftFile.append(amount + "\n");
+			eftFile.append("Provider Name: " + providerName + "\n");
+			eftFile.append("Provider Number: " + providerNumber + "\n");
+			eftFile.append("Total Amount Transferred: " + amount + "\n");
 			eftFile.close();
 		}
 		catch (IOException e) {

@@ -18,7 +18,7 @@ public class ManagerInterface {
 	public void prompt(){
 		boolean flag = false;
 		while(true) {
-			String[] options = new String[] {"Summary", "Member", "Provider", "EftData", "Exit"};
+			String[] options = new String[] {"Summary", "Member", "Provider", "EFT Data", "Exit"};
 	    	int response = JOptionPane.showOptionDialog(null, "Which report would you like?", "Manager Options",
 	    			JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 	    			null, options, options[0]);
