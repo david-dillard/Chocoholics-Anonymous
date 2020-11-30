@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  */
 public class MemberReport extends Report {
-	private String name, number, address, city, state, zipCode;
+	private String name, number = "-1", address, city, state, zipCode;
 	private List<Service> services = new ArrayList<Service>();
 	
 	
@@ -49,17 +49,17 @@ public class MemberReport extends Report {
 	 * Writes all data for member report to separate file 
 	 */
 	public void printReport() {
-		String output = "Member name:\t" + name + "\nMember number:\t" + number + "\nMember street address:\t" + address + "\nMember city:\t" + city + "\nMember state:\t" + state + "\nMember ZIP code:\t" + zipCode + "\n";
-		for(Service service: services) {
-			Provider tempProvider = new Provider();
-			tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
-			ProviderDirectory providerDirectory = new ProviderDirectory();
-//			String serviceName = "Invalid service code";
-//			if (providerDirectory.getName(service.getServiceCode()) != null){
-//				serviceName = 
-//			}
-			
-			output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + providerDirectory.getName(service.getServiceCode()) +"\n";
+		String output = "";
+		if(!(number.equals("-1"))) {
+			 output += "Member name:\t" + name + "\nMember number:\t" + number + "\nMember street address:\t" + address + "\nMember city:\t" + city + "\nMember state:\t" + state + "\nMember ZIP code:\t" + zipCode + "\n";
+			for(Service service: services) {
+				Provider tempProvider = new Provider();
+				tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
+				ProviderDirectory providerDirectory = new ProviderDirectory();
+				output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + providerDirectory.getName(service.getServiceCode()) +"\n";
+			}
+		} else {
+			output += "Member not found";
 		}
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
@@ -71,6 +71,7 @@ public class MemberReport extends Report {
 			System.out.println("An error occurred.");
 		    e.printStackTrace();
 		}
+		
 	}
 	
 	

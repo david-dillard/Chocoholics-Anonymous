@@ -14,7 +14,7 @@ import java.time.format.*;
  * @version 1.0
  */
 public class ProviderReport extends Report{
-	private String name, number, address, city, state, zipCode, consulatations, weeklyFee;
+	private String name, number = "-1", address, city, state, zipCode, consulatations, weeklyFee;
 	private List<Service> services = new ArrayList<Service>();
 	
 	/**
@@ -86,13 +86,18 @@ public class ProviderReport extends Report{
 	 * Writes all data for provider report to separate file 
 	 */
 	public void printReport() {
-		String output = "Provider name:\t" + name + "\nProvider number:\t" + number + "\nProvider street address:\t" + address + "\nProvider City:\t" + city + "\nProvider state:\t" + state + "\nProvider ZIP code\t" + zipCode + "\n";
-		for(Service service: services) {
-			Member tempMember = new Member();
-			tempMember = tempMember.getMemberByNumber(service.getMemberNumber());
-			output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were received by the computer:\t" + service.getComputerTime() + "\nMember name:\t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t" + service.getFee() + "\n";
+		String output = "";
+		if(!(number.equals("-1"))) {
+			output += "Provider name:\t" + name + "\nProvider number:\t" + number + "\nProvider street address:\t" + address + "\nProvider City:\t" + city + "\nProvider state:\t" + state + "\nProvider ZIP code\t" + zipCode + "\n";
+			for(Service service: services) {
+				Member tempMember = new Member();
+				tempMember = tempMember.getMemberByNumber(service.getMemberNumber());
+				output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were received by the computer:\t" + service.getComputerTime() + "\nMember name:\t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t" + service.getFee() + "\n";
+			}
+			output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:$\t" + weeklyFee;
+		} else {
+			output += "Provider not found";
 		}
-		output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:$\t" + weeklyFee;
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();
