@@ -70,9 +70,9 @@ public class SummaryReport extends Report{
 					providerFee += Double.parseDouble(serviceFee);
 				}
 			}
-			output += "Provider name:\t" + provider.getName() + "\nNumber of consulations performed:\t" + tempServices.size() + "\nProvider fee for the week:\t$" + String.format("%.2f%n",providerFee) + "\n";	
+			output += "Provider name: " + provider.getName() + "\nNumber of consulations performed: " + tempServices.size() + "\nProvider fee for the week: $" + String.format("%.2f%n",providerFee) + "\n";	
 		}
-		output += "Total number of providers:\t" + totalProviders + "\nTotal number of consultations:\t" + totalConsultations + "\nOverall fee:\t$" + String.format("%.2f%n",totalFee);
+		output += "Total number of providers: " + totalProviders + "\nTotal number of consultations: " + totalConsultations + "\nOverall fee: $" + String.format("%.2f%n",totalFee);
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");  
 		    Date date = new Date();

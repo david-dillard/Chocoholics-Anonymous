@@ -51,12 +51,12 @@ public class MemberReport extends Report {
 	public void printReport() {
 		String output = "";
 		if(!(number.equals("-1"))) {
-			 output += "Member name:\t" + name + "\nMember number:\t" + number + "\nMember street address:\t" + address + "\nMember city:\t" + city + "\nMember state:\t" + state + "\nMember ZIP code:\t" + zipCode + "\n";
+			 output += "Member name: " + name + "\nMember number: " + number + "\nMember street address: " + address + "\nMember city: " + city + "\nMember state: " + state + "\nMember ZIP code: " + zipCode + "\n";
 			for(Service service: services) {
 				Provider tempProvider = new Provider();
 				tempProvider = tempProvider.getProviderByNumber(service.getProviderNumber());
 				ProviderDirectory providerDirectory = new ProviderDirectory();
-				output += "Date of service:\t" + service.getServiceDate() + "\nProvider name:\t" + tempProvider.getName() + "\nService name:\t" + providerDirectory.getName(service.getServiceCode()) +"\n";
+				output += "Date of service: " + service.getServiceDate() + "\nProvider name: " + tempProvider.getName() + "\nService name: " + providerDirectory.getName(service.getServiceCode()) +"\n";
 			}
 		} else {
 			output += "Member not found";

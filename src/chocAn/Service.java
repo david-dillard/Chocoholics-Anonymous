@@ -156,7 +156,7 @@ public class Service {
 	
 	/**
 	 * Sets the Service object's corresponding provider number.
-	 * @return providerNumber String containing the provider's number (9 digits)
+	 * @param providerNumber String containing the provider's number (9 digits)
 	 */
 	public void setProviderNumber(String providerNumber) {
 		this.providerNumber = providerNumber;

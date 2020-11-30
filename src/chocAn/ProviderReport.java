@@ -88,13 +88,13 @@ public class ProviderReport extends Report{
 	public void printReport() {
 		String output = "";
 		if(!(number.equals("-1"))) {
-			output += "Provider name:\t" + name + "\nProvider number:\t" + number + "\nProvider street address:\t" + address + "\nProvider City:\t" + city + "\nProvider state:\t" + state + "\nProvider ZIP code\t" + zipCode + "\n";
+			output += "Provider name: " + name + "\nProvider number: " + number + "\nProvider street address: " + address + "\nProvider City: " + city + "\nProvider state: " + state + "\nProvider ZIP code " + zipCode + "\n";
 			for(Service service: services) {
 				Member tempMember = new Member();
 				tempMember = tempMember.getMemberByNumber(service.getMemberNumber());
-				output += "Date of Service:\t" + service.getServiceDate() + "\nDate and time data were received by the computer:\t" + service.getComputerTime() + "\nMember name:\t" + tempMember.getName() + "\nMember number:\t" + service.getMemberNumber() + "\nService code:\t" + service.getServiceCode() + "\nFee to be paid:\t" + service.getFee() + "\n";
+				output += "Date of Service: " + service.getServiceDate() + "\nDate and time data were received by the computer: " + service.getComputerTime() + "\nMember name: " + tempMember.getName() + "\nMember number: " + service.getMemberNumber() + "\nService code: " + service.getServiceCode() + "\nFee to be paid: " + service.getFee() + "\n";
 			}
-			output += "Total number of consultations with members:\t" + consulatations + "\nTotal fee for week:$\t" + weeklyFee;
+			output += "Total number of consultations with members: " + consulatations + "\nTotal fee for week: $" + weeklyFee;
 		} else {
 			output += "Provider not found";
 		}
