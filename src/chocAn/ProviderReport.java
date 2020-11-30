@@ -48,7 +48,7 @@ public class ProviderReport extends Report{
 				String tempFee = service.getFee();
 				tempFee = tempFee.replace("$", "");
 				tempFee = tempFee.replace(",", "");
-				System.out.println(tempFee);
+				//System.out.println(tempFee);
 				totalFee += Double.parseDouble(tempFee);
 			}
 			if(totalFee > 99999.99)
