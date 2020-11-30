@@ -56,7 +56,30 @@ public class ProviderInterface {
 					}
 				}
 			} else if(s.equals("Bill ChocAn")) {
-				billing.recordInformation();
+				String a = (String)JOptionPane.showInputDialog(frame, "Member Card or Member Number?", "Member Validation", JOptionPane.PLAIN_MESSAGE, icon, possibilities2, "Card");
+				boolean valid = false;
+				if (a == null) {
+					
+				} else if(a.equals("Card")) {
+					String n = (String)JOptionPane.showInputDialog(frame, "Enter member number from member card.", "Member Card", JOptionPane.PLAIN_MESSAGE, icon, null, "");
+					valid = billing.verifyMemberCard(n);
+					if(valid == true) {
+						JOptionPane.showMessageDialog(frame, "VALIDATED");
+					} else {
+						JOptionPane.showMessageDialog(frame, "NOT VALIDATED");
+					}
+				} else if(a.equals("Number")) {
+					String n = (String)JOptionPane.showInputDialog(frame, "Enter member number provided.", "Member Number", JOptionPane.PLAIN_MESSAGE, icon, null, "");
+					valid = billing.verifyMemberNumber(n);
+					if(valid == true) {
+						JOptionPane.showMessageDialog(frame, "VALIDATED");
+					} else {
+						JOptionPane.showMessageDialog(frame, "NOT VALIDATED");
+					}
+				}
+				if(valid == true) {
+					billing.recordInformation();
+				}
 			} else if(s.equals("Request Provider Directory")){
 				directory = request.requestDirectory();
 				JOptionPane.showMessageDialog(frame,  "The Provider Directory has been emailed.");
