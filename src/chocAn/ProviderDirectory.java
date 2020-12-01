@@ -64,7 +64,7 @@ public class ProviderDirectory {
 	
 	/**
 	 * Returns the assigned service code of a given service name, returns null if the service name does not exist.
-	 * @param Service Name
+	 * @param name The service name
 	 * @return Corresponding Service Code or null if the name does not exist
 	 */
 	public String getCode(String name) {
@@ -82,7 +82,7 @@ public class ProviderDirectory {
 	
 	/**
 	 * Returns the assigned service name of a given service code, returns null if the service code does not exist.
-	 * @param Service Code
+	 * @param code name The service code
 	 * @return Corresponding service name or null if the code does not exist
 	 */
 	public String getName(String code) {

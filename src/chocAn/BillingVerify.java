@@ -67,7 +67,7 @@ public class BillingVerify {
 	
 	/**
 	 * This method verifies that a given member number exists.
-	 * @param Member number
+	 * @param number member number
 	 * @return Returns true if the number exists and false if it does not.
 	 */
 	public boolean verifyMemberNumber(String number) {
@@ -78,7 +78,7 @@ public class BillingVerify {
 	
 	/**
 	 * This method verifies that a given service code exists.
-	 * @param Service Code
+	 * @param serviceCode The service code
 	 * @return Returns true if the service code exists and false if it does not.
 	 */
 	public boolean verifyServiceCode(String serviceCode) {
@@ -96,7 +96,7 @@ public class BillingVerify {
 	
 	/**
 	 * This method verifies a given member card has a valid member number.
-	 * @param Member number
+	 * @param number the member number
 	 * @return Returns true if the number exists and false if it does not.
 	 */
 	public boolean verifyMemberCard(String number) {
