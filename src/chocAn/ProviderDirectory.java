@@ -48,7 +48,7 @@ public class ProviderDirectory {
 	
 	/**
 	 * This method returns the list of service codes.
-	 * @return serviceCodes
+	 * @return Service Codes
 	 */
 	public String[] getServiceCodes() {
 		return serviceCodes;
@@ -56,7 +56,7 @@ public class ProviderDirectory {
 	
 	/**
 	 * This method returns the list of service names.
-	 * @return serviceNames
+	 * @return Service Names
 	 */
 	public String[] getServiceNames() {
 		return serviceNames;
@@ -64,8 +64,8 @@ public class ProviderDirectory {
 	
 	/**
 	 * Returns the assigned service code of a given service name, returns null if the service name does not exist.
-	 * @param name
-	 * @return serviceCodes[i] or null
+	 * @param Service Name
+	 * @return Corresponding Service Code or null if the name does not exist
 	 */
 	public String getCode(String name) {
 		int i = 0;
@@ -82,8 +82,8 @@ public class ProviderDirectory {
 	
 	/**
 	 * Returns the assigned service name of a given service code, returns null if the service code does not exist.
-	 * @param code
-	 * @return serviceNames[i] or null
+	 * @param Service Code
+	 * @return Corresponding service name or null if the code does not exist
 	 */
 	public String getName(String code) {
 		int i = 0;

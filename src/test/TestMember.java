@@ -17,7 +17,7 @@ public class TestMember {
 	
 	/**
 	 * This method creates a test member before running tests.
-	 * @throws Exception
+	 * @throws Exception to be thrown.
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -41,7 +41,7 @@ public class TestMember {
 	}
 	
 	/**
-	 * This method tests that searchMemberNumber correctly returns false with a search for a nonexistant member number.
+	 * This method tests that searchMemberNumber correctly returns false with a search for a nonexistent member number.
 	 */
 	@Test
 	public void testSearchMemberNumberFailure() {
