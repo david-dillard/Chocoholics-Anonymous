@@ -47,6 +47,7 @@ public class Interface {
 				gen.runAccountingProcedure();
 			}
 		}
+		System.exit(0);
 	}
 	
 	/**
